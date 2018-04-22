@@ -1,0 +1,1342 @@
+[
+  {
+    "date": 1405699200,
+    "high": 0.00413615,
+    "low": 0.00403986,
+    "open": 0.00404545,
+    "close": 0.00403997,
+    "volume": 4.95713239,
+    "quoteVolume": 1205.10503896,
+    "weightedAverage": 0.00411344
+  },
+  {
+    "date": 1405699500,
+    "high": 0.00413592,
+    "low": 0.004049,
+    "open": 0.00413592,
+    "close": 0.004049,
+    "volume": 0.00258763,
+    "quoteVolume": 0.62973342,
+    "weightedAverage": 0.00410909
+  },
+  {
+    "date": 1405699800,
+    "high": 0.004049,
+    "low": 0.00403001,
+    "open": 0.004049,
+    "close": 0.00403001,
+    "volume": 0.33166094,
+    "quoteVolume": 82.16488473,
+    "weightedAverage": 0.00403652
+  },
+  {
+    "date": 1405700100,
+    "high": 0.00420365,
+    "low": 0.0041,
+    "open": 0.0041,
+    "close": 0.00419765,
+    "volume": 7.19060781,
+    "quoteVolume": 1724.52874226,
+    "weightedAverage": 0.0041696
+  },
+  {
+    "date": 1405700400,
+    "high": 0.0042262,
+    "low": 0.00420011,
+    "open": 0.00420011,
+    "close": 0.00421147,
+    "volume": 1.0450791,
+    "quoteVolume": 248.06769383,
+    "weightedAverage": 0.00421287
+  },
+  {
+    "date": 1405700700,
+    "high": 0.00431642,
+    "low": 0.0042001,
+    "open": 0.00421112,
+    "close": 0.0042001,
+    "volume": 0.63975659,
+    "quoteVolume": 152.08255482,
+    "weightedAverage": 0.00420664
+  },
+  {
+    "date": 1405701000,
+    "high": 0.00429458,
+    "low": 0.0042011,
+    "open": 0.00429458,
+    "close": 0.0042011,
+    "volume": 0.08010965,
+    "quoteVolume": 19.06816614,
+    "weightedAverage": 0.00420122
+  },
+  {
+    "date": 1405701300,
+    "high": 0.00425,
+    "low": 0.00418,
+    "open": 0.00418,
+    "close": 0.00425,
+    "volume": 0.1036511,
+    "quoteVolume": 24.395,
+    "weightedAverage": 0.00424886
+  },
+  {
+    "date": 1405701600,
+    "high": 0.00418,
+    "low": 0.00418,
+    "open": 0.00418,
+    "close": 0.00418,
+    "volume": 0.0100111,
+    "quoteVolume": 2.395,
+    "weightedAverage": 0.00418
+  },
+  {
+    "date": 1405701900,
+    "high": 0.00419488,
+    "low": 0.00419488,
+    "open": 0.00419488,
+    "close": 0.00419488,
+    "volume": 0.02993999,
+    "quoteVolume": 7.1372721,
+    "weightedAverage": 0.00419488
+  },
+  {
+    "date": 1405702200,
+    "high": 0.00418,
+    "low": 0.00418,
+    "open": 0.00418,
+    "close": 0.00418,
+    "volume": 0.02820697,
+    "quoteVolume": 6.74807923,
+    "weightedAverage": 0.00418
+  },
+  {
+    "date": 1405702500,
+    "high": 0.00418,
+    "low": 0.00417995,
+    "open": 0.00417995,
+    "close": 0.00418,
+    "volume": 0.08661354,
+    "quoteVolume": 20.72115559,
+    "weightedAverage": 0.00417995
+  },
+  {
+    "date": 1405702800,
+    "high": 0.00419499,
+    "low": 0.00415004,
+    "open": 0.00419489,
+    "close": 0.00415004,
+    "volume": 0.65603582,
+    "quoteVolume": 157.91552799,
+    "weightedAverage": 0.00415434
+  },
+  {
+    "date": 1405703100,
+    "high": 0.00415105,
+    "low": 0.00415105,
+    "open": 0.00415105,
+    "close": 0.00415105,
+    "volume": 0.07491621,
+    "quoteVolume": 18.04753411,
+    "weightedAverage": 0.00415105
+  },
+  {
+    "date": 1405703400,
+    "high": 0.00419498,
+    "low": 0.00415105,
+    "open": 0.00415105,
+    "close": 0.00415105,
+    "volume": 0.42449745,
+    "quoteVolume": 101.49746589,
+    "weightedAverage": 0.00418234
+  },
+  {
+    "date": 1405703700,
+    "high": 0.00422189,
+    "low": 0.00419,
+    "open": 0.00419,
+    "close": 0.00422189,
+    "volume": 1.456498,
+    "quoteVolume": 346.96200021,
+    "weightedAverage": 0.00419786
+  },
+  {
+    "date": 1405704000,
+    "high": 0.0045,
+    "low": 0.00423043,
+    "open": 0.004251,
+    "close": 0.00423043,
+    "volume": 5.8328661,
+    "quoteVolume": 1318.27252172,
+    "weightedAverage": 0.00442462
+  },
+  {
+    "date": 1405704300,
+    "high": 0.00426846,
+    "low": 0.00422609,
+    "open": 0.00426412,
+    "close": 0.00422609,
+    "volume": 0.42075439,
+    "quoteVolume": 98.84455589,
+    "weightedAverage": 0.00425672
+  },
+  {
+    "date": 1405704600,
+    "high": 0.00422609,
+    "low": 0.00422609,
+    "open": 0.00422609,
+    "close": 0.00422609,
+    "volume": 0.17678579,
+    "quoteVolume": 41.832,
+    "weightedAverage": 0.00422609
+  },
+  {
+    "date": 1405704900,
+    "high": 0.0042982,
+    "low": 0.00422609,
+    "open": 0.00422609,
+    "close": 0.0042982,
+    "volume": 0.04077853,
+    "quoteVolume": 9.52227811,
+    "weightedAverage": 0.00428243
+  },
+  {
+    "date": 1405705200,
+    "high": 0.0043,
+    "low": 0.00425,
+    "open": 0.00426412,
+    "close": 0.0043,
+    "volume": 1.36978839,
+    "quoteVolume": 319.15560245,
+    "weightedAverage": 0.00429191
+  },
+  {
+    "date": 1405705500,
+    "high": 0.0043879,
+    "low": 0.00430433,
+    "open": 0.00430433,
+    "close": 0.0043879,
+    "volume": 0.21004048,
+    "quoteVolume": 48.21575982,
+    "weightedAverage": 0.00435626
+  },
+  {
+    "date": 1405705800,
+    "high": 0.0043879,
+    "low": 0.0043879,
+    "open": 0.0043879,
+    "close": 0.0043879,
+    "volume": 0,
+    "quoteVolume": 0,
+    "weightedAverage": 0.0043879
+  },
+  {
+    "date": 1405706100,
+    "high": 0.004509,
+    "low": 0.0043699,
+    "open": 0.00438,
+    "close": 0.0044038,
+    "volume": 6.28252864,
+    "quoteVolume": 1421.33262649,
+    "weightedAverage": 0.00442016
+  },
+  {
+    "date": 1405706400,
+    "high": 0.00445,
+    "low": 0.00440378,
+    "open": 0.0044038,
+    "close": 0.00445,
+    "volume": 1.23051961,
+    "quoteVolume": 277.06154627,
+    "weightedAverage": 0.00444132
+  },
+  {
+    "date": 1405706700,
+    "high": 0.0044979,
+    "low": 0.00440396,
+    "open": 0.0044979,
+    "close": 0.00440398,
+    "volume": 0.22627882,
+    "quoteVolume": 50.38074859,
+    "weightedAverage": 0.00449137
+  },
+  {
+    "date": 1405707000,
+    "high": 0.00451098,
+    "low": 0.00449699,
+    "open": 0.0044979,
+    "close": 0.00449699,
+    "volume": 0.34056934,
+    "quoteVolume": 75.68402621,
+    "weightedAverage": 0.00449988
+  },
+  {
+    "date": 1405707300,
+    "high": 0.00449699,
+    "low": 0.00449699,
+    "open": 0.00449699,
+    "close": 0.00449699,
+    "volume": 0,
+    "quoteVolume": 0,
+    "weightedAverage": 0.00449699
+  },
+  {
+    "date": 1405707600,
+    "high": 0.00449792,
+    "low": 0.00443,
+    "open": 0.00449699,
+    "close": 0.00443,
+    "volume": 1.98325389,
+    "quoteVolume": 446.89052399,
+    "weightedAverage": 0.00443789
+  },
+  {
+    "date": 1405707900,
+    "high": 0.00443574,
+    "low": 0.0044353,
+    "open": 0.00443574,
+    "close": 0.0044353,
+    "volume": 0.07096594,
+    "quoteVolume": 16,
+    "weightedAverage": 0.00443537
+  },
+  {
+    "date": 1405708200,
+    "high": 0.0045388,
+    "low": 0.00427,
+    "open": 0.00443963,
+    "close": 0.00437749,
+    "volume": 4.6497706,
+    "quoteVolume": 1054.65723233,
+    "weightedAverage": 0.00440879
+  },
+  {
+    "date": 1405708500,
+    "high": 0.00437749,
+    "low": 0.00432702,
+    "open": 0.00437749,
+    "close": 0.00432702,
+    "volume": 0.30209635,
+    "quoteVolume": 69.57588165,
+    "weightedAverage": 0.00434196
+  },
+  {
+    "date": 1405708800,
+    "high": 0.00432702,
+    "low": 0.00432702,
+    "open": 0.00432702,
+    "close": 0.00432702,
+    "volume": 0,
+    "quoteVolume": 0,
+    "weightedAverage": 0.00432702
+  },
+  {
+    "date": 1405709100,
+    "high": 0.004345,
+    "low": 0.00432432,
+    "open": 0.004345,
+    "close": 0.00434121,
+    "volume": 0.48687369,
+    "quoteVolume": 112.12902175,
+    "weightedAverage": 0.00434208
+  },
+  {
+    "date": 1405709400,
+    "high": 0.0044161,
+    "low": 0.00434211,
+    "open": 0.00434212,
+    "close": 0.0044161,
+    "volume": 0.976148,
+    "quoteVolume": 224.80071617,
+    "weightedAverage": 0.00434228
+  },
+  {
+    "date": 1405709700,
+    "high": 0.0044161,
+    "low": 0.0044161,
+    "open": 0.0044161,
+    "close": 0.0044161,
+    "volume": 0,
+    "quoteVolume": 0,
+    "weightedAverage": 0.0044161
+  },
+  {
+    "date": 1405710000,
+    "high": 0.00434211,
+    "low": 0.00434211,
+    "open": 0.00434211,
+    "close": 0.00434211,
+    "volume": 0.02446779,
+    "quoteVolume": 5.63500148,
+    "weightedAverage": 0.00434211
+  },
+  {
+    "date": 1405710300,
+    "high": 0.00434211,
+    "low": 0.00434211,
+    "open": 0.00434211,
+    "close": 0.00434211,
+    "volume": 0.14198699,
+    "quoteVolume": 32.7,
+    "weightedAverage": 0.00434211
+  },
+  {
+    "date": 1405710600,
+    "high": 0.00432,
+    "low": 0.00432,
+    "open": 0.00432,
+    "close": 0.00432,
+    "volume": 0.37079812,
+    "quoteVolume": 85.83290026,
+    "weightedAverage": 0.00432
+  },
+  {
+    "date": 1405710900,
+    "high": 0.00432,
+    "low": 0.00432,
+    "open": 0.00432,
+    "close": 0.00432,
+    "volume": 0.45323859,
+    "quoteVolume": 104.91634208,
+    "weightedAverage": 0.00432
+  },
+  {
+    "date": 1405711200,
+    "high": 0.00432,
+    "low": 0.00432,
+    "open": 0.00432,
+    "close": 0.00432,
+    "volume": 0,
+    "quoteVolume": 0,
+    "weightedAverage": 0.00432
+  },
+  {
+    "date": 1405711500,
+    "high": 0.00432,
+    "low": 0.00432,
+    "open": 0.00432,
+    "close": 0.00432,
+    "volume": 0,
+    "quoteVolume": 0,
+    "weightedAverage": 0.00432
+  },
+  {
+    "date": 1405711800,
+    "high": 0.0043862,
+    "low": 0.00432,
+    "open": 0.00432,
+    "close": 0.0043862,
+    "volume": 0.07775913,
+    "quoteVolume": 17.90222166,
+    "weightedAverage": 0.00434354
+  },
+  {
+    "date": 1405712100,
+    "high": 0.0043862,
+    "low": 0.0043862,
+    "open": 0.0043862,
+    "close": 0.0043862,
+    "volume": 0,
+    "quoteVolume": 0,
+    "weightedAverage": 0.0043862
+  },
+  {
+    "date": 1405712400,
+    "high": 0.00432,
+    "low": 0.00427,
+    "open": 0.00432,
+    "close": 0.00427592,
+    "volume": 1.33098281,
+    "quoteVolume": 310.48343477,
+    "weightedAverage": 0.0042868
+  },
+  {
+    "date": 1405712700,
+    "high": 0.00427466,
+    "low": 0.00427466,
+    "open": 0.00427466,
+    "close": 0.00427466,
+    "volume": 0.00683945,
+    "quoteVolume": 1.6,
+    "weightedAverage": 0.00427466
+  },
+  {
+    "date": 1405713000,
+    "high": 0.00427022,
+    "low": 0.00427022,
+    "open": 0.00427022,
+    "close": 0.00427022,
+    "volume": 0.00422751,
+    "quoteVolume": 0.99,
+    "weightedAverage": 0.00427022
+  },
+  {
+    "date": 1405713300,
+    "high": 0.00435873,
+    "low": 0.00435873,
+    "open": 0.00435873,
+    "close": 0.00435873,
+    "volume": 0.2179365,
+    "quoteVolume": 50,
+    "weightedAverage": 0.00435873
+  },
+  {
+    "date": 1405713600,
+    "high": 0.00428012,
+    "low": 0.00428012,
+    "open": 0.00428012,
+    "close": 0.00428012,
+    "volume": 0.01516212,
+    "quoteVolume": 3.54245322,
+    "weightedAverage": 0.00428012
+  },
+  {
+    "date": 1405713900,
+    "high": 0.00428012,
+    "low": 0.00428012,
+    "open": 0.00428012,
+    "close": 0.00428012,
+    "volume": 0,
+    "quoteVolume": 0,
+    "weightedAverage": 0.00428012
+  },
+  {
+    "date": 1405714200,
+    "high": 0.00428012,
+    "low": 0.00428012,
+    "open": 0.00428012,
+    "close": 0.00428012,
+    "volume": 0,
+    "quoteVolume": 0,
+    "weightedAverage": 0.00428012
+  },
+  {
+    "date": 1405714500,
+    "high": 0.00428012,
+    "low": 0.00427012,
+    "open": 0.00428012,
+    "close": 0.00427012,
+    "volume": 0.46936052,
+    "quoteVolume": 109.68084863,
+    "weightedAverage": 0.00427932
+  },
+  {
+    "date": 1405714800,
+    "high": 0.00435,
+    "low": 0.00427702,
+    "open": 0.004343,
+    "close": 0.00427702,
+    "volume": 1.86293638,
+    "quoteVolume": 430.97931986,
+    "weightedAverage": 0.00432256
+  },
+  {
+    "date": 1405715100,
+    "high": 0.00435,
+    "low": 0.00434843,
+    "open": 0.00434843,
+    "close": 0.00434963,
+    "volume": 1.29458956,
+    "quoteVolume": 297.63718821,
+    "weightedAverage": 0.00434955
+  },
+  {
+    "date": 1405715400,
+    "high": 0.00428155,
+    "low": 0.004274,
+    "open": 0.004274,
+    "close": 0.00428155,
+    "volume": 0.0763481,
+    "quoteVolume": 17.86061489,
+    "weightedAverage": 0.00427466
+  },
+  {
+    "date": 1405715700,
+    "high": 0.00428155,
+    "low": 0.00428155,
+    "open": 0.00428155,
+    "close": 0.00428155,
+    "volume": 0,
+    "quoteVolume": 0,
+    "weightedAverage": 0.00428155
+  },
+  {
+    "date": 1405716000,
+    "high": 0.00434135,
+    "low": 0.00434135,
+    "open": 0.00434135,
+    "close": 0.00434135,
+    "volume": 0.087001,
+    "quoteVolume": 20.04008017,
+    "weightedAverage": 0.00434135
+  },
+  {
+    "date": 1405716300,
+    "high": 0.00434135,
+    "low": 0.00434135,
+    "open": 0.00434135,
+    "close": 0.00434135,
+    "volume": 0,
+    "quoteVolume": 0,
+    "weightedAverage": 0.00434135
+  },
+  {
+    "date": 1405716600,
+    "high": 0.00428156,
+    "low": 0.00427,
+    "open": 0.00428156,
+    "close": 0.00427,
+    "volume": 1.48830997,
+    "quoteVolume": 348.13953488,
+    "weightedAverage": 0.00427503
+  },
+  {
+    "date": 1405716900,
+    "high": 0.00427,
+    "low": 0.00425,
+    "open": 0.00427,
+    "close": 0.00425,
+    "volume": 1.4746627,
+    "quoteVolume": 345.47135907,
+    "weightedAverage": 0.00426855
+  },
+  {
+    "date": 1405717200,
+    "high": 0.00425,
+    "low": 0.00425,
+    "open": 0.00425,
+    "close": 0.00425,
+    "volume": 0,
+    "quoteVolume": 0,
+    "weightedAverage": 0.00425
+  },
+  {
+    "date": 1405717500,
+    "high": 0.00425,
+    "low": 0.00425,
+    "open": 0.00425,
+    "close": 0.00425,
+    "volume": 0,
+    "quoteVolume": 0,
+    "weightedAverage": 0.00425
+  },
+  {
+    "date": 1405717800,
+    "high": 0.00426999,
+    "low": 0.00425,
+    "open": 0.00426999,
+    "close": 0.00425,
+    "volume": 0.02622235,
+    "quoteVolume": 6.1457638,
+    "weightedAverage": 0.00426673
+  },
+  {
+    "date": 1405718100,
+    "high": 0.00425,
+    "low": 0.00425,
+    "open": 0.00425,
+    "close": 0.00425,
+    "volume": 0,
+    "quoteVolume": 0,
+    "weightedAverage": 0.00425
+  },
+  {
+    "date": 1405718400,
+    "high": 0.00424,
+    "low": 0.00422001,
+    "open": 0.00424,
+    "close": 0.00422001,
+    "volume": 0.46201097,
+    "quoteVolume": 109.47115593,
+    "weightedAverage": 0.00422039
+  },
+  {
+    "date": 1405718700,
+    "high": 0.00422926,
+    "low": 0.00416,
+    "open": 0.00422926,
+    "close": 0.00416,
+    "volume": 4.92484837,
+    "quoteVolume": 1173.31866472,
+    "weightedAverage": 0.00419736
+  },
+  {
+    "date": 1405719000,
+    "high": 0.00416,
+    "low": 0.00416,
+    "open": 0.00416,
+    "close": 0.00416,
+    "volume": 0,
+    "quoteVolume": 0,
+    "weightedAverage": 0.00416
+  },
+  {
+    "date": 1405719300,
+    "high": 0.00416763,
+    "low": 0.00415887,
+    "open": 0.00415887,
+    "close": 0.00416762,
+    "volume": 0.07052708,
+    "quoteVolume": 16.9246769,
+    "weightedAverage": 0.00416711
+  },
+  {
+    "date": 1405719600,
+    "high": 0.00417194,
+    "low": 0.0041598,
+    "open": 0.00417194,
+    "close": 0.0041598,
+    "volume": 0.01699615,
+    "quoteVolume": 4.08000277,
+    "weightedAverage": 0.00416572
+  },
+  {
+    "date": 1405719900,
+    "high": 0.0041598,
+    "low": 0.0041598,
+    "open": 0.0041598,
+    "close": 0.0041598,
+    "volume": 0,
+    "quoteVolume": 0,
+    "weightedAverage": 0.0041598
+  },
+  {
+    "date": 1405720200,
+    "high": 0.00415581,
+    "low": 0.0041513,
+    "open": 0.00415581,
+    "close": 0.0041513,
+    "volume": 0.73054082,
+    "quoteVolume": 175.97020681,
+    "weightedAverage": 0.0041515
+  },
+  {
+    "date": 1405720500,
+    "high": 0.0041513,
+    "low": 0.0041513,
+    "open": 0.0041513,
+    "close": 0.0041513,
+    "volume": 0.00709249,
+    "quoteVolume": 1.7084986,
+    "weightedAverage": 0.0041513
+  },
+  {
+    "date": 1405720800,
+    "high": 0.0041513,
+    "low": 0.0041513,
+    "open": 0.0041513,
+    "close": 0.0041513,
+    "volume": 0,
+    "quoteVolume": 0,
+    "weightedAverage": 0.0041513
+  },
+  {
+    "date": 1405721100,
+    "high": 0.0041513,
+    "low": 0.00415103,
+    "open": 0.0041513,
+    "close": 0.00415103,
+    "volume": 1.41555734,
+    "quoteVolume": 341.001703,
+    "weightedAverage": 0.00415117
+  },
+  {
+    "date": 1405721400,
+    "high": 0.00415103,
+    "low": 0.00415103,
+    "open": 0.00415103,
+    "close": 0.00415103,
+    "volume": 0.06890709,
+    "quoteVolume": 16.6,
+    "weightedAverage": 0.00415103
+  },
+  {
+    "date": 1405721700,
+    "high": 0.00415104,
+    "low": 0.00415103,
+    "open": 0.00415104,
+    "close": 0.00415103,
+    "volume": 0.0159109,
+    "quoteVolume": 3.833,
+    "weightedAverage": 0.00415103
+  },
+  {
+    "date": 1405722000,
+    "high": 0.004205,
+    "low": 0.00415103,
+    "open": 0.00415103,
+    "close": 0.004205,
+    "volume": 0.05827558,
+    "quoteVolume": 14,
+    "weightedAverage": 0.00416254
+  },
+  {
+    "date": 1405722300,
+    "high": 0.004205,
+    "low": 0.004205,
+    "open": 0.004205,
+    "close": 0.004205,
+    "volume": 0,
+    "quoteVolume": 0,
+    "weightedAverage": 0.004205
+  },
+  {
+    "date": 1405722600,
+    "high": 0.00415103,
+    "low": 0.00415103,
+    "open": 0.00415103,
+    "close": 0.00415103,
+    "volume": 0.14528605,
+    "quoteVolume": 35,
+    "weightedAverage": 0.00415103
+  },
+  {
+    "date": 1405722900,
+    "high": 0.00415104,
+    "low": 0.00415103,
+    "open": 0.00415104,
+    "close": 0.00415103,
+    "volume": 1.20471197,
+    "quoteVolume": 290.22,
+    "weightedAverage": 0.00415103
+  },
+  {
+    "date": 1405723200,
+    "high": 0.00429124,
+    "low": 0.00420112,
+    "open": 0.00420123,
+    "close": 0.00429124,
+    "volume": 0.63543171,
+    "quoteVolume": 150.88941559,
+    "weightedAverage": 0.00421124
+  },
+  {
+    "date": 1405723500,
+    "high": 0.00429124,
+    "low": 0.00429124,
+    "open": 0.00429124,
+    "close": 0.00429124,
+    "volume": 0,
+    "quoteVolume": 0,
+    "weightedAverage": 0.00429124
+  },
+  {
+    "date": 1405723800,
+    "high": 0.00423241,
+    "low": 0.00423241,
+    "open": 0.00423241,
+    "close": 0.00423241,
+    "volume": 0.09865757,
+    "quoteVolume": 23.31002331,
+    "weightedAverage": 0.00423241
+  },
+  {
+    "date": 1405724100,
+    "high": 0.00415104,
+    "low": 0.00415103,
+    "open": 0.00415104,
+    "close": 0.00415103,
+    "volume": 0.21983857,
+    "quoteVolume": 52.96,
+    "weightedAverage": 0.00415103
+  },
+  {
+    "date": 1405724400,
+    "high": 0.00420582,
+    "low": 0.00420582,
+    "open": 0.00420582,
+    "close": 0.00420582,
+    "volume": 0.0223975,
+    "quoteVolume": 5.32536104,
+    "weightedAverage": 0.00420582
+  },
+  {
+    "date": 1405724700,
+    "high": 0.00418,
+    "low": 0.00418,
+    "open": 0.00418,
+    "close": 0.00418,
+    "volume": 0.02764025,
+    "quoteVolume": 6.61250239,
+    "weightedAverage": 0.00418
+  },
+  {
+    "date": 1405725000,
+    "high": 0.00418,
+    "low": 0.00418,
+    "open": 0.00418,
+    "close": 0.00418,
+    "volume": 0.00521454,
+    "quoteVolume": 1.24749761,
+    "weightedAverage": 0.00418
+  },
+  {
+    "date": 1405725300,
+    "high": 0.00417,
+    "low": 0.00416,
+    "open": 0.00417,
+    "close": 0.00416,
+    "volume": 0.01666,
+    "quoteVolume": 4,
+    "weightedAverage": 0.004165
+  },
+  {
+    "date": 1405725600,
+    "high": 0.004152,
+    "low": 0.00413062,
+    "open": 0.004152,
+    "close": 0.00413062,
+    "volume": 1.24537707,
+    "quoteVolume": 300,
+    "weightedAverage": 0.00415125
+  },
+  {
+    "date": 1405725900,
+    "high": 0.00416965,
+    "low": 0.004122,
+    "open": 0.00413062,
+    "close": 0.004122,
+    "volume": 0.12511138,
+    "quoteVolume": 30.29289103,
+    "weightedAverage": 0.00413005
+  },
+  {
+    "date": 1405726200,
+    "high": 0.00413061,
+    "low": 0.004122,
+    "open": 0.004122,
+    "close": 0.00413061,
+    "volume": 0.0430328,
+    "quoteVolume": 10.43657773,
+    "weightedAverage": 0.00412326
+  },
+  {
+    "date": 1405726500,
+    "high": 0.00416988,
+    "low": 0.00416988,
+    "open": 0.00416988,
+    "close": 0.00416988,
+    "volume": 0.28355184,
+    "quoteVolume": 68,
+    "weightedAverage": 0.00416988
+  },
+  {
+    "date": 1405726800,
+    "high": 0.004122,
+    "low": 0.004122,
+    "open": 0.004122,
+    "close": 0.004122,
+    "volume": 0.00010004,
+    "quoteVolume": 0.02427,
+    "weightedAverage": 0.004122
+  },
+  {
+    "date": 1405727100,
+    "high": 0.00417,
+    "low": 0.00412,
+    "open": 0.004122,
+    "close": 0.00417,
+    "volume": 0.48344537,
+    "quoteVolume": 116.8916005,
+    "weightedAverage": 0.00413584
+  },
+  {
+    "date": 1405727400,
+    "high": 0.00417,
+    "low": 0.00417,
+    "open": 0.00417,
+    "close": 0.00417,
+    "volume": 0,
+    "quoteVolume": 0,
+    "weightedAverage": 0.00417
+  },
+  {
+    "date": 1405727700,
+    "high": 0.00412,
+    "low": 0.00412,
+    "open": 0.00412,
+    "close": 0.00412,
+    "volume": 0.00100033,
+    "quoteVolume": 0.2428,
+    "weightedAverage": 0.00412
+  },
+  {
+    "date": 1405728000,
+    "high": 0.00411485,
+    "low": 0.00411473,
+    "open": 0.00411473,
+    "close": 0.00411485,
+    "volume": 0.02880371,
+    "quoteVolume": 7,
+    "weightedAverage": 0.00411481
+  },
+  {
+    "date": 1405728300,
+    "high": 0.00415655,
+    "low": 0.00411404,
+    "open": 0.00411486,
+    "close": 0.00415655,
+    "volume": 0.56813426,
+    "quoteVolume": 138.0720463,
+    "weightedAverage": 0.00411476
+  },
+  {
+    "date": 1405728600,
+    "high": 0.00415555,
+    "low": 0.00415361,
+    "open": 0.00415361,
+    "close": 0.00415555,
+    "volume": 1.25804497,
+    "quoteVolume": 302.86907135,
+    "weightedAverage": 0.00415375
+  },
+  {
+    "date": 1405728900,
+    "high": 0.00417,
+    "low": 0.00415678,
+    "open": 0.00415678,
+    "close": 0.00416433,
+    "volume": 0.35766898,
+    "quoteVolume": 85.95408346,
+    "weightedAverage": 0.00416116
+  },
+  {
+    "date": 1405729200,
+    "high": 0.00416433,
+    "low": 0.00416433,
+    "open": 0.00416433,
+    "close": 0.00416433,
+    "volume": 0,
+    "quoteVolume": 0,
+    "weightedAverage": 0.00416433
+  },
+  {
+    "date": 1405729500,
+    "high": 0.0041143,
+    "low": 0.0041143,
+    "open": 0.0041143,
+    "close": 0.0041143,
+    "volume": 0.00479171,
+    "quoteVolume": 1.16464912,
+    "weightedAverage": 0.0041143
+  },
+  {
+    "date": 1405729800,
+    "high": 0.0041143,
+    "low": 0.0041143,
+    "open": 0.0041143,
+    "close": 0.0041143,
+    "volume": 0,
+    "quoteVolume": 0,
+    "weightedAverage": 0.0041143
+  },
+  {
+    "date": 1405730100,
+    "high": 0.0041142,
+    "low": 0.00411404,
+    "open": 0.0041142,
+    "close": 0.00411404,
+    "volume": 0.11897812,
+    "quoteVolume": 28.91940257,
+    "weightedAverage": 0.00411412
+  },
+  {
+    "date": 1405730400,
+    "high": 0.00411428,
+    "low": 0.00409,
+    "open": 0.00411404,
+    "close": 0.00409,
+    "volume": 5.23365641,
+    "quoteVolume": 1274.0352141,
+    "weightedAverage": 0.00410793
+  },
+  {
+    "date": 1405730700,
+    "high": 0.00409,
+    "low": 0.00409,
+    "open": 0.00409,
+    "close": 0.00409,
+    "volume": 0,
+    "quoteVolume": 0,
+    "weightedAverage": 0.00409
+  },
+  {
+    "date": 1405731000,
+    "high": 0.00409,
+    "low": 0.00409,
+    "open": 0.00409,
+    "close": 0.00409,
+    "volume": 0.0001001,
+    "quoteVolume": 0.02447433,
+    "weightedAverage": 0.00409
+  },
+  {
+    "date": 1405731300,
+    "high": 0.00409,
+    "low": 0.00409,
+    "open": 0.00409,
+    "close": 0.00409,
+    "volume": 0,
+    "quoteVolume": 0,
+    "weightedAverage": 0.00409
+  },
+  {
+    "date": 1405731600,
+    "high": 0.004093,
+    "low": 0.00406,
+    "open": 0.004093,
+    "close": 0.00406,
+    "volume": 0.68869719,
+    "quoteVolume": 169.395,
+    "weightedAverage": 0.00406562
+  },
+  {
+    "date": 1405731900,
+    "high": 0.00409964,
+    "low": 0.00406,
+    "open": 0.00406,
+    "close": 0.00409964,
+    "volume": 0.1355752,
+    "quoteVolume": 33.1,
+    "weightedAverage": 0.00409592
+  },
+  {
+    "date": 1405732200,
+    "high": 0.00411829,
+    "low": 0.00406695,
+    "open": 0.00409964,
+    "close": 0.00409024,
+    "volume": 11.47026534,
+    "quoteVolume": 2799.59854542,
+    "weightedAverage": 0.00409711
+  },
+  {
+    "date": 1405732500,
+    "high": 0.00409024,
+    "low": 0.00409024,
+    "open": 0.00409024,
+    "close": 0.00409024,
+    "volume": 0,
+    "quoteVolume": 0,
+    "weightedAverage": 0.00409024
+  },
+  {
+    "date": 1405732800,
+    "high": 0.00409024,
+    "low": 0.00409024,
+    "open": 0.00409024,
+    "close": 0.00409024,
+    "volume": 0,
+    "quoteVolume": 0,
+    "weightedAverage": 0.00409024
+  },
+  {
+    "date": 1405733100,
+    "high": 0.00406001,
+    "low": 0.00406001,
+    "open": 0.00406001,
+    "close": 0.00406001,
+    "volume": 0.00080675,
+    "quoteVolume": 0.19870656,
+    "weightedAverage": 0.00406001
+  },
+  {
+    "date": 1405733400,
+    "high": 0.00406,
+    "low": 0.00406,
+    "open": 0.00406,
+    "close": 0.00406,
+    "volume": 0.79258605,
+    "quoteVolume": 195.218239,
+    "weightedAverage": 0.00406
+  },
+  {
+    "date": 1405733700,
+    "high": 0.00406,
+    "low": 0.00406,
+    "open": 0.00406,
+    "close": 0.00406,
+    "volume": 0,
+    "quoteVolume": 0,
+    "weightedAverage": 0.00406
+  },
+  {
+    "date": 1405734000,
+    "high": 0.00421036,
+    "low": 0.00411205,
+    "open": 0.00411205,
+    "close": 0.00421036,
+    "volume": 1.95410285,
+    "quoteVolume": 473.15552385,
+    "weightedAverage": 0.00412993
+  },
+  {
+    "date": 1405734300,
+    "high": 0.00430011,
+    "low": 0.00411205,
+    "open": 0.00411206,
+    "close": 0.0043,
+    "volume": 5.5217634,
+    "quoteVolume": 1285.40680115,
+    "weightedAverage": 0.00429573
+  },
+  {
+    "date": 1405734600,
+    "high": 0.0043,
+    "low": 0.0043,
+    "open": 0.0043,
+    "close": 0.0043,
+    "volume": 0,
+    "quoteVolume": 0,
+    "weightedAverage": 0.0043
+  },
+  {
+    "date": 1405734900,
+    "high": 0.00431068,
+    "low": 0.00431068,
+    "open": 0.00431068,
+    "close": 0.00431068,
+    "volume": 0.005,
+    "quoteVolume": 1.15990981,
+    "weightedAverage": 0.00431068
+  },
+  {
+    "date": 1405735200,
+    "high": 0.00433557,
+    "low": 0.00433136,
+    "open": 0.00433136,
+    "close": 0.00433557,
+    "volume": 0.38818584,
+    "quoteVolume": 89.56999882,
+    "weightedAverage": 0.00433388
+  },
+  {
+    "date": 1405735500,
+    "high": 0.00422899,
+    "low": 0.00422467,
+    "open": 0.00422899,
+    "close": 0.00422467,
+    "volume": 0.41002056,
+    "quoteVolume": 97,
+    "weightedAverage": 0.00422701
+  },
+  {
+    "date": 1405735800,
+    "high": 0.00432211,
+    "low": 0.00429999,
+    "open": 0.00429999,
+    "close": 0.00432211,
+    "volume": 0.39505891,
+    "quoteVolume": 91.47274257,
+    "weightedAverage": 0.00431887
+  },
+  {
+    "date": 1405736100,
+    "high": 0.00432211,
+    "low": 0.00432211,
+    "open": 0.00432211,
+    "close": 0.00432211,
+    "volume": 0,
+    "quoteVolume": 0,
+    "weightedAverage": 0.00432211
+  },
+  {
+    "date": 1405736400,
+    "high": 0.00434332,
+    "low": 0.00422536,
+    "open": 0.00434332,
+    "close": 0.00422536,
+    "volume": 0.02902281,
+    "quoteVolume": 6.8234,
+    "weightedAverage": 0.00425342
+  },
+  {
+    "date": 1405736700,
+    "high": 0.00434332,
+    "low": 0.00433072,
+    "open": 0.00433072,
+    "close": 0.00434332,
+    "volume": 0.01131274,
+    "quoteVolume": 2.60751236,
+    "weightedAverage": 0.00433852
+  },
+  {
+    "date": 1405737000,
+    "high": 0.00434332,
+    "low": 0.00434332,
+    "open": 0.00434332,
+    "close": 0.00434332,
+    "volume": 0,
+    "quoteVolume": 0,
+    "weightedAverage": 0.00434332
+  },
+  {
+    "date": 1405737300,
+    "high": 0.00433899,
+    "low": 0.00432603,
+    "open": 0.00433466,
+    "close": 0.00432603,
+    "volume": 0.19234303,
+    "quoteVolume": 44.40958355,
+    "weightedAverage": 0.00433111
+  },
+  {
+    "date": 1405737600,
+    "high": 0.00432603,
+    "low": 0.00432603,
+    "open": 0.00432603,
+    "close": 0.00432603,
+    "volume": 0.1297809,
+    "quoteVolume": 30,
+    "weightedAverage": 0.00432603
+  },
+  {
+    "date": 1405737900,
+    "high": 0.00432603,
+    "low": 0.00424749,
+    "open": 0.00432603,
+    "close": 0.00424749,
+    "volume": 1.06304064,
+    "quoteVolume": 245.7355,
+    "weightedAverage": 0.00432595
+  },
+  {
+    "date": 1405738200,
+    "high": 0.00433888,
+    "low": 0.00424774,
+    "open": 0.00433888,
+    "close": 0.00424786,
+    "volume": 0.01775554,
+    "quoteVolume": 4.17485163,
+    "weightedAverage": 0.00425297
+  },
+  {
+    "date": 1405738500,
+    "high": 0.00433899,
+    "low": 0.0043,
+    "open": 0.00433552,
+    "close": 0.00433899,
+    "volume": 0.755688,
+    "quoteVolume": 175.40635295,
+    "weightedAverage": 0.00430821
+  },
+  {
+    "date": 1405738800,
+    "high": 0.00435,
+    "low": 0.0043,
+    "open": 0.0043,
+    "close": 0.00435,
+    "volume": 0.09282708,
+    "quoteVolume": 21.41141348,
+    "weightedAverage": 0.0043354
+  },
+  {
+    "date": 1405739100,
+    "high": 0.00430011,
+    "low": 0.00429,
+    "open": 0.00430011,
+    "close": 0.00429,
+    "volume": 1.73120658,
+    "quoteVolume": 403.16360577,
+    "weightedAverage": 0.00429405
+  }
+]

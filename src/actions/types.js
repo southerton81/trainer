@@ -1,0 +1,1 @@
+export const ZOOM_CHART = 'zoom_chart';
