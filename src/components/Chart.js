@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { ART, Dimensions, View } from "react-native";
 import { Button }  from './common';
 import { Candle } from "./../shapes/Candle";
-import { zoomChart } from '../actions';
+import { zoomChart, fetchChart } from '../actions';
 import CoordsConverter from '../engine/CoordsConverter';
 
 class Chart extends Component {
@@ -12,9 +12,15 @@ class Chart extends Component {
     this.zoom = 4;
   }
 
-  componentWillMount() {}
+  componentWillMount() {
+
+
+    console.log("componentWillMount")
+    this.props.fetchChart();
+  }
 
   render() {
+ 
     let maxPrice = Number.MIN_VALUE;
     let minPrice = Number.MAX_VALUE;
     this.props.chart.forEach(candle => {
@@ -86,5 +92,5 @@ const mapStateToProps = state => {
 };
 
 export default connect(mapStateToProps, {
-  zoomChart
+  zoomChart, fetchChart
 })(Chart);

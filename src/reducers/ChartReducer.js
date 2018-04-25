@@ -1,12 +1,13 @@
-import data from "./../../res/Chart.json";
-import { ZOOM_CHART } from "../actions/types";
+import { ZOOM_CHART, FETCH_CHART_SUCCESS } from "../actions/types";
 
-const INITIAL_STATE = data;
+const INITIAL_STATE = [];
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case ZOOM_CHART:
-      return data.slice(0, action.payload);
+      return state.slice(0, action.payload);
+    case FETCH_CHART_SUCCESS:
+      return action.payload;
     default:
       return state;
   }
