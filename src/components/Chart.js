@@ -4,13 +4,14 @@ import { ART, Dimensions, View } from "react-native";
 import { Button }  from './common';
 import { Candle } from "./../shapes/Candle";
 import { zoomChart } from '../actions';
+import CoordsConverter from '../engine/CoordsConverter';
 
 class Chart extends Component {
- 
   constructor(props) {
     super(props);
-   this.zoom=4;
+    this.zoom = 4;
   }
+
   componentWillMount() {}
 
   render() {
@@ -29,13 +30,12 @@ class Chart extends Component {
     let candleWidth = width / this.props.chart.length;
     let pixelValue = height / (maxPrice - minPrice);
 
-    console.log(pixelValue + "pv");
-
-    let x = candleWidth / 2;
+    let x = 0;
     const screenCandles = this.props.chart.map(candle => {
       const screenCandle = {
         date: candle.date,
         x: x,
+        width: candleWidth,
         high: height - (candle.high - minPrice) * pixelValue,
         low: height - (candle.low - minPrice) * pixelValue,
         open: height - (candle.open - minPrice) * pixelValue,
@@ -45,15 +45,18 @@ class Chart extends Component {
       x += candleWidth;
       return screenCandle;
     });
- 
+
     const candles = screenCandles.map(candle => (
       <Candle key={candle.date} candleData={candle} />
     ));
 
-    return <View style={styles.containerStyle}>
-        <Button onPress={() => {
+    return (
+      <View style={styles.containerStyle}>
+        <Button
+          onPress={() => {
             this.props.zoomChart(++this.zoom);
-          }}>
+          }}
+        >
           Zoom
         </Button>
         <ART.Surface width={width} height={height}>
@@ -61,7 +64,8 @@ class Chart extends Component {
             {candles}
           </ART.Group>
         </ART.Surface>
-      </View>;
+      </View>
+    );
   }
 }
 
