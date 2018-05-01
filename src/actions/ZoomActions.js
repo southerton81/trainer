@@ -1,4 +1,5 @@
-import data from "./../../res/Chart.json";
+import candles from "./../../res/Chart.json";
+import CoordsConverter from "./../engine/CoordsConverter";
 
 import {
     ZOOM_CHART,
@@ -13,8 +14,12 @@ export const zoomChart = (candleCount) => {
 };
 
 export const fetchChart = () => {
+
+  const coordsConverter = new CoordsConverter(candles)
+
+
   return {
     type: FETCH_CHART_SUCCESS,
-    payload: data
+    payload: candles
   };
 };

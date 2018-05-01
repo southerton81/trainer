@@ -9,7 +9,7 @@ import CoordsConverter from '../engine/CoordsConverter';
 class Chart extends Component {
   constructor(props) {
     super(props);
-    this.zoom = 4;
+    this.+ = 4;
   }
 
   componentWillMount() {
@@ -20,7 +20,6 @@ class Chart extends Component {
   }
 
   render() {
- 
     let maxPrice = Number.MIN_VALUE;
     let minPrice = Number.MAX_VALUE;
     this.props.chart.forEach(candle => {
