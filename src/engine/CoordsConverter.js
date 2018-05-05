@@ -2,8 +2,8 @@ export default class CoordsConverter {
     constructor(candles) {
         this.candles = candles;
 
-        let prices = this.calculateMinMaxPrice(candles);
-        this.normalizePrices(candles, prices);
+        let prices = this._calculateMinMaxPrice(candles);
+        this._normalizePrices(candles, prices);
 
         this.priceScale = 1000
         let priceRange = (prices.maxPrice - prices.minPrice) * this.priceScale;
@@ -12,16 +12,20 @@ export default class CoordsConverter {
         this.candleWidth = 10;
         this.maxX = candles.length * this.candleWidth;
         this.maxY = priceRange;
-        this.setChartVisibleRc();
+        this._setChartVisibleRc()
     }
 
     setScreenSize(w, h) {
         this.screenWidth = w
         this.screenHeight = h
-        this.screenToChart = { x: w / this.chartVisibleRc.w, y : h / this.chartVisibleRc.h}
+        this.screenToChart = {
+             x: this.screenWidth / this.chartVisibleRc.w, 
+             y : h / this.chartVisibleRc.h
+            }
     }
 
     getScreenCandles(from = 0, to = this.candles.length) {
+        this._setChartVisibleRc(from, to);
         let candlesSpan = this.candles.slice(from, to)
         let screenCandleWidth = this.screenWidth / (to - from)
 
@@ -33,8 +37,6 @@ export default class CoordsConverter {
             let openPrice = this.priceToVerticalChartPos(candle.open)
             let closePrice = this.priceToVerticalChartPos(candle.close)
 
-            console.log(highPrice)
-
             candle.screenHigh = {x: x, y: this.chartToScreenVerticalPos(highPrice)}    
             candle.screenLow = {x: x, y: this.chartToScreenVerticalPos(lowPrice)}
             candle.screenOpen = {x: x, y: this.chartToScreenVerticalPos(openPrice)}    
@@ -44,9 +46,9 @@ export default class CoordsConverter {
         return candlesSpan
     }
 
-    setChartVisibleRc(from = 0, to = this.candles.length) {
+    _setChartVisibleRc(from = 0, to = this.candles.length) {
         let candlesSpan = this.candles.slice(from, to)
-        let prices = this.calculateMinMaxPrice(candlesSpan)
+        let prices = this._calculateMinMaxPrice(candlesSpan)
 
         let minPricePos = this.priceToVerticalChartPos(prices.minPrice)
         let x = from * this.candleWidth
@@ -66,7 +68,7 @@ export default class CoordsConverter {
        return (price - this.minPrice) * this.priceScale;
     }
 
-    normalizePrices(candles, prices) {
+    _normalizePrices(candles, prices) {
         let minConvertPrice = 10;
         if (prices.minPrice < minConvertPrice || prices.maxPrice > minConvertPrice * 10) {
             let priceMultiplier = minConvertPrice / prices.minPrice;
@@ -82,7 +84,7 @@ export default class CoordsConverter {
         }
     }
 
-    calculateMinMaxPrice(candles) {
+    _calculateMinMaxPrice(candles) {
         let prices = {
             maxPrice : Number.MIN_VALUE,
             minPrice : Number.MAX_VALUE
