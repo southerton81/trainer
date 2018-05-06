@@ -14,12 +14,9 @@ export const zoomChart = (candleCount) => {
 };
 
 export const fetchChart = () => {
-
-  const coordsConverter = new CoordsConverter(candles)
-
-
+  const coordsConverter = new CoordsConverter(candles) 
   return {
     type: FETCH_CHART_SUCCESS,
-    payload: candles
+    payload: coordsConverter
   };
 };

@@ -3,17 +3,17 @@ import { ART } from "react-native";
 
 const Candle = ({ candleData }) => {
   const candle = ART.Path()
-    .moveTo(candleData.x + candleData.width / 2, candleData.high)
-    .lineTo(candleData.x + candleData.width / 2, candleData.low);
+    .moveTo(candleData.screenHigh.x + candleData.screenWidth / 2, candleData.screenHigh.y)
+    .lineTo(candleData.screenHigh.x + candleData.screenWidth / 2, candleData.screenLow.y);
 
-  let x = candleData.x;
-  let y = Math.min(candleData.open, candleData.close);
-  let height = Math.abs(candleData.open - candleData.close);
+  let x = candleData.screenHigh.x;
+  let y = Math.min(candleData.screenOpen.y, candleData.screenClose.y);
+  let height = Math.abs(candleData.screenOpen.y - candleData.screenClose.y);
 
   const body = ART.Path()
     .moveTo(x, y)
-    .lineTo(x + candleData.width, y)
-    .lineTo(x + candleData.width, y + height)
+    .lineTo(x + candleData.screenWidth, y)
+    .lineTo(x + candleData.screenWidth, y + height)
     .lineTo(x, y + height)
     .lineTo(x, y)
     .close();

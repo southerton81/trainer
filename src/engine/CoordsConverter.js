@@ -41,6 +41,7 @@ export default class CoordsConverter {
             candle.screenLow = {x: x, y: this.chartToScreenVerticalPos(lowPrice)}
             candle.screenOpen = {x: x, y: this.chartToScreenVerticalPos(openPrice)}    
             candle.screenClose = {x: x, y: this.chartToScreenVerticalPos(closePrice)}
+            candle.screenWidth = screenCandleWidth;
         });
 
         return candlesSpan

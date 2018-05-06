@@ -6,9 +6,9 @@ export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case ZOOM_CHART:
       return state.slice(0, action.payload);
-    case FETCH_CHART_SUCCESS:
+    case FETCH_CHART_SUCCESS: 
       return action.payload;
     default:
-      return state;
+      return null;
   }
 };
