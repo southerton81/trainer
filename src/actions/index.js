@@ -1,1 +1,1 @@
-export * from './ZoomActions';
+export * from './ChartActions';

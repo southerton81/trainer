@@ -1,14 +1,20 @@
 import { ZOOM_CHART, FETCH_CHART_SUCCESS } from "../actions/types";
 
-const INITIAL_STATE = [];
+const INITIAL_STATE = {
+  coordsConverter: null,
+  decorations: []
+};
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case ZOOM_CHART:
-      return state.slice(0, action.payload);
+      return INITIAL_STATE
     case FETCH_CHART_SUCCESS: 
-      return action.payload;
+      return { ...state, coordsConverter: action.payload };
+    case ADD_TRENDLINE:
+      let newDecorations = [ ...state.decorations, action.payload ]
+      return { ...state, decorations: newDecorations }
     default:
-      return null;
+      return INITIAL_STATE;
   }
 };

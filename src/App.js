@@ -10,7 +10,7 @@ export default class App extends Component {
     return (
       <Provider store={createStore(reducers)}>
         <View style = {styles.container} >
-          <View style={{ height: 30 }} />
+          
           <Chart />
         </View>
       </Provider>

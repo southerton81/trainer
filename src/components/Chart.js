@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { ART, Dimensions, View, ActivityIndicator } from "react-native";
+import { ART, Dimensions, View, ActivityIndicator, TouchableWithoutFeedback } from "react-native";
 import { Button } from "./common";
 import { Candle } from "./../shapes/Candle";
-import { zoomChart, fetchChart } from "../actions";
-import CoordsConverter from "../engine/CoordsConverter";
+import { zoomChart, fetchChart, addTrendline } from "../actions"; 
 
 class Chart extends Component {
   constructor(props) {
@@ -16,14 +15,19 @@ class Chart extends Component {
     this.props.fetchChart();
   }
 
+  onTouch(event) {
+
+    this.props.addTrendline(0,0,100,200)
+
+    //event.nativeEvent.locationX
+    //event.nativeEvent.locationY
+  }
+
   render() {
     if (this.props.coordsConverter !== null) {
       let { height, width } = Dimensions.get("window");
 
-      console.log(height)
-      console.log(width)
-      this.props.coordsConverter.setScreenSize(width, height);
-      let screenCandles = this.props.coordsConverter.getScreenCandles(0, 292);
+      let screenCandles = this.props.coordsConverter.getScreenCandles(0, 20);
 
       const candles = screenCandles.map(candle => (
         <Candle key={candle.date} candleData={candle} />
@@ -33,21 +37,21 @@ class Chart extends Component {
       <Button
             onPress={() => {
               this.props.zoomChart(++this.zoom);
-            }}
-          >
+            }}>
             Zoom
-          </Button>
+      </Button>
 */
 
       return (
-        <View style={styles.containerStyle}>
-          <ART.Surface width={width} height={height}>
-            <ART.Group x={0} y={0}>
-              {candles}
-            </ART.Group>
-          </ART.Surface>
-        </View>
-      );
+        <TouchableWithoutFeedback onPress={this.onTouch}>
+          <View style={styles.containerStyle}>
+            <ART.Surface width={width} height={height}>
+              <ART.Group x={0} y={0}>
+                {candles}
+              </ART.Group>
+            </ART.Surface>
+          </View>
+        </TouchableWithoutFeedback>);
     } else {
       return (
         <View>
@@ -63,7 +67,7 @@ const styles = {
     flex:1,
     borderBottomWidth: 1,
     padding: 5,
-    backgroundColor: "#123",
+    backgroundColor: "#aaa",
     justifyContent: "flex-start",
     flexDirection: "column",
     borderColor: "#ddd",
@@ -71,11 +75,14 @@ const styles = {
   }
 };
 
-const mapStateToProps = state => {
-  return { coordsConverter: state.coordsConverter };
+const mapStateToProps = state => { 
+
+  console.log(state)
+  return { coordsConverter: state.chartState.coordsConverter };
 };
 
 export default connect(mapStateToProps, {
   zoomChart,
-  fetchChart
+  fetchChart,
+  addTrendline
 })(Chart);
