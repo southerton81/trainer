@@ -14,6 +14,26 @@ export default class CoordsConverter {
         this._setScreenSize(w, h)
     }
 
+    convertScreenToChart(x, y) {
+        let chartX = this.chartVisibleRc.x + (x / this.screenToVisibleChart.x);
+        let chartY = this.chartVisibleRc.y + (y / this.screenToVisibleChart.y);
+        return { x: chartX, y: chartY }
+    }
+
+    convertChartToScreen(x, y) {
+        let scrX = (x - this.chartVisibleRc.x) * this.screenToVisibleChart.x;
+        let scrY = (y - this.chartVisibleRc.y) * this.screenToVisibleChart.y;
+        return { x: scrX, y: scrY }
+    }
+
+    chartToScreenVerticalPos(chartVerticalPos) {
+        return chartVerticalPos * this.screenToVisibleChart.y
+    }
+
+    priceToVerticalChartPos(price) {
+       return (price - this.minPrice) * this.priceScale;
+    }
+
     getScreenCandles(from = 0, to = this.candles.length) {
         this._setChartVisibleRc(from, to);
         let candlesSpan = this.candles.slice(from, to)
@@ -66,14 +86,6 @@ export default class CoordsConverter {
             x: this.screenWidth / this.chartVisibleRc.w, 
             y: this.screenHeight / this.chartVisibleRc.h
         }
-    }
-
-    chartToScreenVerticalPos(chartVerticalPos) {
-        return chartVerticalPos * this.screenToVisibleChart.y
-    }
-
-    priceToVerticalChartPos(price) {
-       return (price - this.minPrice) * this.priceScale;
     }
 
     _normalizePrices(candles, prices) {

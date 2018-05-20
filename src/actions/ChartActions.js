@@ -4,7 +4,8 @@ import { Dimensions } from "react-native";
 
 import {
     ZOOM_CHART,
-    FETCH_CHART_SUCCESS
+    FETCH_CHART_SUCCESS,
+    ADD_TRENDLINE
 } from './types';
 
 export const zoomChart = (candleCount) => {
@@ -21,10 +22,11 @@ export const fetchChart = () => {
     type: FETCH_CHART_SUCCESS,
     payload: coordsConverter
   };
+};
 
-  export const addTrendline = (x1, y1, x2, y2) => {
+  export const addTrendline = (_x,_y) => {
     return {
       type: ADD_TRENDLINE,
-      payload: {coords: [x1,y1,x2,y2]}
+      payload: {x: _x, y: _y}
     };
 };

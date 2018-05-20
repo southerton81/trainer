@@ -17,10 +17,10 @@ class Chart extends Component {
 
   onTouch(event) {
 
-    this.props.addTrendline(0,0,100,200)
-
-    //event.nativeEvent.locationX
-    //event.nativeEvent.locationY
+    if (this.props.coordsConverter !== null) {
+      let pt = this.props.coordsConverter.convertScreenToChart(event.nativeEvent.locationX, event.nativeEvent.locationY)
+      this.props.addTrendline(pt.x,pt.y)
+    }
   }
 
   render() {
@@ -33,21 +33,36 @@ class Chart extends Component {
         <Candle key={candle.date} candleData={candle} />
       ));
 
-/*
-      <Button
-            onPress={() => {
-              this.props.zoomChart(++this.zoom);
-            }}>
-            Zoom
-      </Button>
-*/
+      let trendlines = []
+      if (this.props.trendlines.length > 2) {
+
+          trendlines = this.props.trendlines.reduce((previousValue,currentValue,index) => {
+          let pt = this.props.coordsConverter.convertChartToScreen(currentValue.x, currentValue.y)
+           
+          if (index % 2 === 0) {
+            previousValue.push(ART.Path().moveTo(pt.x, pt.y))
+          } else {
+            let lastPath = previousValue[previousValue.length - 1]
+            lastPath = lastPath.lineTo(pt.x, pt.y)
+          }
+
+          return previousValue;
+        }, []);
+
+        trendlines = trendlines.map((path, index) => (
+          <ART.Group key={index}>
+            <ART.Shape stroke={"#000"} d={path} />
+          </ART.Group>
+        ));
+      }
 
       return (
-        <TouchableWithoutFeedback onPress={this.onTouch}>
+        <TouchableWithoutFeedback onPress={this.onTouch.bind(this)}>
           <View style={styles.containerStyle}>
             <ART.Surface width={width} height={height}>
               <ART.Group x={0} y={0}>
                 {candles}
+                {trendlines}
               </ART.Group>
             </ART.Surface>
           </View>
@@ -78,7 +93,8 @@ const styles = {
 const mapStateToProps = state => { 
 
   console.log(state)
-  return { coordsConverter: state.chartState.coordsConverter };
+  return { coordsConverter: state.chartState.coordsConverter,
+           trendlines: state.chartState.trendlines };
 };
 
 export default connect(mapStateToProps, {

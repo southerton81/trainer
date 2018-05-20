@@ -15,7 +15,6 @@ const Candle = ({ candleData }) => {
     .lineTo(x + candleData.screenWidth, y)
     .lineTo(x + candleData.screenWidth, y + height)
     .lineTo(x, y + height)
-    .lineTo(x, y)
     .close();
 
   let colorBody = candleData.open > candleData.close ? "#008000" : "#FF0000";

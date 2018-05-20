@@ -1,8 +1,8 @@
-import { ZOOM_CHART, FETCH_CHART_SUCCESS } from "../actions/types";
+import { ZOOM_CHART, FETCH_CHART_SUCCESS, ADD_TRENDLINE } from "../actions/types";
 
 const INITIAL_STATE = {
   coordsConverter: null,
-  decorations: []
+  trendlines: []
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -12,8 +12,8 @@ export default (state = INITIAL_STATE, action) => {
     case FETCH_CHART_SUCCESS: 
       return { ...state, coordsConverter: action.payload };
     case ADD_TRENDLINE:
-      let newDecorations = [ ...state.decorations, action.payload ]
-      return { ...state, decorations: newDecorations }
+      let newTrendlines = [ ...state.trendlines, action.payload ]
+      return { ...state, trendlines: newTrendlines }
     default:
       return INITIAL_STATE;
   }
