@@ -3,76 +3,44 @@ import { connect } from "react-redux";
 import { ART, Dimensions, View, ActivityIndicator, TouchableWithoutFeedback } from "react-native";
 import { Button } from "./common";
 import { Candle } from "./../shapes/Candle";
+import { Trendlines } from "./../shapes/Trendlines";
 import { zoomChart, fetchChart, addTrendline } from "../actions"; 
 
 class Chart extends Component {
   constructor(props) {
-    super(props);
-    this.zoom = 4;
+    super(props); 
   }
 
-  componentWillMount() {
-    this.props.fetchChart();
+  componentWillMount() { 
+   this.props.fetchChart()
   }
 
   onTouch(event) {
-
-    if (this.props.coordsConverter !== null) {
-      let pt = this.props.coordsConverter.convertScreenToChart(event.nativeEvent.locationX, event.nativeEvent.locationY)
-      this.props.addTrendline(pt.x,pt.y)
-    }
+    this.props.addTrendline(event.nativeEvent.locationX, event.nativeEvent.locationY)
   }
 
-  render() {
-    if (this.props.coordsConverter !== null) {
-      let { height, width } = Dimensions.get("window");
+  render() { 
+    console.log('1')
+    if (this.props.candles) {
 
-      let screenCandles = this.props.coordsConverter.getScreenCandles(0, 20);
+      console.log('1+')
+      const candles = this.props.candles.map(candle => (<Candle key={"candle" + candle.date} candleData={candle} /> ))
+      const trendlines = <Trendlines trendlines={this.props.trendlines} />
 
-      const candles = screenCandles.map(candle => (
-        <Candle key={candle.date} candleData={candle} />
-      ));
-
-      let trendlines = []
-      if (this.props.trendlines.length > 2) {
-
-          trendlines = this.props.trendlines.reduce((previousValue,currentValue,index) => {
-          let pt = this.props.coordsConverter.convertChartToScreen(currentValue.x, currentValue.y)
-           
-          if (index % 2 === 0) {
-            previousValue.push(ART.Path().moveTo(pt.x, pt.y))
-          } else {
-            let lastPath = previousValue[previousValue.length - 1]
-            lastPath = lastPath.lineTo(pt.x, pt.y)
-          }
-
-          return previousValue;
-        }, []);
-
-        trendlines = trendlines.map((path, index) => (
-          <ART.Group key={index}>
-            <ART.Shape stroke={"#000"} d={path} />
-          </ART.Group>
-        ));
-      }
-
-      return (
-        <TouchableWithoutFeedback onPress={this.onTouch.bind(this)}>
+      let { height, width } = Dimensions.get("window")
+      return <TouchableWithoutFeedback onPress={this.onTouch.bind(this)}>
           <View style={styles.containerStyle}>
             <ART.Surface width={width} height={height}>
-              <ART.Group x={0} y={0}>
-                {candles}
-                {trendlines}
-              </ART.Group>
+              {candles}
+              {trendlines}
             </ART.Surface>
           </View>
-        </TouchableWithoutFeedback>);
+        </TouchableWithoutFeedback>
     } else {
-      return (
-        <View>
+      console.log('1-')
+      return <View>
           <ActivityIndicator size="large" color="#0000ff" />
         </View>
-      );
     }
   }
 }
@@ -88,17 +56,16 @@ const styles = {
     borderColor: "#ddd",
     position: "relative"
   }
-};
+}
 
 const mapStateToProps = state => { 
-
-  console.log(state)
-  return { coordsConverter: state.chartState.coordsConverter,
-           trendlines: state.chartState.trendlines };
-};
+  return { candles: state.chartState.candles,
+           trendlines: state.chartState.trendlines,
+           span: state.chartState.span }
+}
 
 export default connect(mapStateToProps, {
   zoomChart,
   fetchChart,
   addTrendline
-})(Chart);
+})(Chart)

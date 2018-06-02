@@ -1,32 +1,41 @@
-import candles from "./../../res/Chart.json";
-import CoordsConverter from "./../engine/CoordsConverter";
-import { Dimensions } from "react-native";
+import candles from "./../../res/Chart.json"
+import CoordsConverter from "./../engine/CoordsConverter"
+import { Dimensions } from "react-native"
 
-import {
-    ZOOM_CHART,
-    FETCH_CHART_SUCCESS,
-    ADD_TRENDLINE
-} from './types';
+import { ZOOM_CHART, FETCH_CHART_SUCCESS, ADD_TRENDLINE } from "./types"
+import { Trendlines } from "../shapes/Trendlines";
+import DecoratorsProcessor from "../engine/DecoratorsProcessor";
 
-export const zoomChart = (candleCount) => {
+console.log('2')
+ 
+var coordsConverter 
+const decoratorsProcessor = new DecoratorsProcessor()
+
+export const zoomChart = candleCount => {
   return {
     type: ZOOM_CHART,
     payload: candleCount
-  };
-};
+  }
+}
 
 export const fetchChart = () => {
-  let { height, width } = Dimensions.get("window");
-  const coordsConverter = new CoordsConverter(candles, width, height) 
-  return {
-    type: FETCH_CHART_SUCCESS,
-    payload: coordsConverter
-  };
-};
+  return function (dispatch) {
+    requestAnimationFrame(() => {
+      let { height, width } = Dimensions.get("window")
+      coordsConverter = new CoordsConverter(candles, width, height)
+      dispatch( {
+        type: FETCH_CHART_SUCCESS,
+        payload: coordsConverter.getScreenCandles()
+      })
+    })
+  }
+}
 
-  export const addTrendline = (_x,_y) => {
-    return {
-      type: ADD_TRENDLINE,
-      payload: {x: _x, y: _y}
-    };
-};
+export const addTrendline = (scrX, scrY) => { 
+  let chartPoint = coordsConverter.convertScreenToChart(scrX, scrY)
+  decoratorsProcessor.addTrendline(chartPoint.x, chartPoint.y)
+  return {
+    type: ADD_TRENDLINE,
+    payload: decoratorsProcessor.getScreenTrendlines(coordsConverter)
+  }
+}
