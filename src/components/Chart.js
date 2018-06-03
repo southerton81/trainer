@@ -8,40 +8,42 @@ import { zoomChart, fetchChart, addTrendline } from "../actions";
 
 class Chart extends Component {
   constructor(props) {
-    super(props); 
+    super(props)
   }
 
-  componentWillMount() { 
-   this.props.fetchChart()
+  componentWillMount() {
+    this.props.fetchChart()
   }
 
   onTouch(event) {
-    this.props.addTrendline(event.nativeEvent.locationX, event.nativeEvent.locationY)
+    this.props.addTrendline(
+      event.nativeEvent.locationX,
+      event.nativeEvent.locationY
+    )
   }
 
-  render() { 
-    console.log('1')
-    if (this.props.candles) {
-
-      console.log('1+')
-      const candles = this.props.candles.map(candle => (<Candle key={"candle" + candle.date} candleData={candle} /> ))
-      const trendlines = <Trendlines trendlines={this.props.trendlines} />
-
-      let { height, width } = Dimensions.get("window")
-      return <TouchableWithoutFeedback onPress={this.onTouch.bind(this)}>
-          <View style={styles.containerStyle}>
-            <ART.Surface width={width} height={height}>
-              {candles}
-              {trendlines}
-            </ART.Surface>
-          </View>
-        </TouchableWithoutFeedback>
-    } else {
-      console.log('1-')
-      return <View>
+  render() {
+    console.log("1")
+    if (this.props.loading)
+      return (
+        <View>
           <ActivityIndicator size="large" color="#0000ff" />
+        </View>)
+
+    const candles = this.props.candles.map(candle => (<Candle key={"candle" + candle.date} candleData={candle} />))
+    const trendlines = <Trendlines trendlines={this.props.trendlines} />
+
+    let { height, width } = Dimensions.get("window")
+    return (
+      <TouchableWithoutFeedback onPress={this.onTouch.bind(this)}>
+        <View style={styles.containerStyle}>
+          <ART.Surface width={width} height={height}>
+            {candles}
+            {trendlines}
+          </ART.Surface>
         </View>
-    }
+      </TouchableWithoutFeedback>
+    )
   }
 }
 
@@ -61,6 +63,7 @@ const styles = {
 const mapStateToProps = state => { 
   return { candles: state.chartState.candles,
            trendlines: state.chartState.trendlines,
+           loading: state.chartState.loading,
            span: state.chartState.span }
 }
 

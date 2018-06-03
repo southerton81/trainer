@@ -2,7 +2,7 @@ import candles from "./../../res/Chart.json"
 import CoordsConverter from "./../engine/CoordsConverter"
 import { Dimensions } from "react-native"
 
-import { ZOOM_CHART, FETCH_CHART_SUCCESS, ADD_TRENDLINE } from "./types"
+import { ZOOM_CHART, FETCH_CHART_SUCCESS, ADD_TRENDLINE, FETCH_CHART_START } from "./types"
 import { Trendlines } from "../shapes/Trendlines";
 import DecoratorsProcessor from "../engine/DecoratorsProcessor";
 
@@ -19,14 +19,15 @@ export const zoomChart = candleCount => {
 }
 
 export const fetchChart = () => {
-  return function (dispatch) {
+  return (dispatch) => {
+    dispatch({type: FETCH_CHART_START}) 
     requestAnimationFrame(() => {
       let { height, width } = Dimensions.get("window")
       coordsConverter = new CoordsConverter(candles, width, height)
       dispatch( {
         type: FETCH_CHART_SUCCESS,
         payload: coordsConverter.getScreenCandles()
-      })
+      }) 
     })
   }
 }
