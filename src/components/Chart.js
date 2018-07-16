@@ -1,29 +1,57 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { ART, Dimensions, View, ActivityIndicator, TouchableWithoutFeedback } from "react-native";
+import { Animated, PanResponder, ART, Dimensions, View, ActivityIndicator, TouchableWithoutFeedback } from "react-native";
 import { Button } from "./common";
 import { Candle } from "./../shapes/Candle";
 import { Trendlines } from "./../shapes/Trendlines";
-import { zoomChart, fetchChart, addTrendline } from "../actions"; 
+import { zoomChart, fetchChart, addTrendline,  moveChart } from "../actions"; 
 
 class Chart extends Component {
   constructor(props) {
-    super(props)
+    super(props) 
   }
 
-  componentWillMount() {
+  componentWillMount() { 
     this.props.fetchChart()
-  }
 
+    this.pan = {x: 0, y: 0};
+  
+    this._panResponder = PanResponder.create({
+      onMoveShouldSetPanResponder:(evt, gestureState) => true,
+      onMoveShouldSetResponderCapture: () => true,
+      onMoveShouldSetPanResponderCapture: () => true,
+  
+      onPanResponderGrant: (e, gestureState) => {
+        this.pan = {x: e.nativeEvent.locationX, y: e.nativeEvent.locationY}
+
+        //console.log('gr: ' + this.pan.x + ' ' + this.pan.y)
+      },
+  
+      onPanResponderMove: (e, gestureState) => { 
+
+        let xDiff = e.nativeEvent.locationX - this.pan.x
+
+        this.pan = {x: e.nativeEvent.locationX, y: e.nativeEvent.locationY}
+
+        //console.log('mov: ' + this.pan.x + ' ' + this.pan.y) 
+        this.props.moveChart(xDiff)
+        //console.log('xDiff: ' + xDiff)
+      //  console.log('touches: ' + e.nativeEvent.touches + ' ' + e.y)
+      },
+  
+      onPanResponderRelease: (e, {vx, vy}) => {
+      }
+    });
+  }
+  
   onTouch(event) {
     this.props.addTrendline(
       event.nativeEvent.locationX,
       event.nativeEvent.locationY
     )
   }
-
-  render() {
-    console.log("1")
+  
+  render() { 
     if (this.props.loading)
       return (
         <View>
@@ -34,15 +62,13 @@ class Chart extends Component {
     const trendlines = <Trendlines trendlines={this.props.trendlines} />
 
     let { height, width } = Dimensions.get("window")
-    return (
-      <TouchableWithoutFeedback onPress={this.onTouch.bind(this)}>
-        <View style={styles.containerStyle}>
+    return ( 
+        <View style={styles.containerStyle} {...this._panResponder.panHandlers}>
           <ART.Surface width={width} height={height}>
             {candles}
             {trendlines}
           </ART.Surface>
-        </View>
-      </TouchableWithoutFeedback>
+        </View> 
     )
   }
 }
@@ -70,5 +96,6 @@ const mapStateToProps = state => {
 export default connect(mapStateToProps, {
   zoomChart,
   fetchChart,
-  addTrendline
+  addTrendline,
+  moveChart
 })(Chart)

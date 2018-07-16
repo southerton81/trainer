@@ -1,26 +1,24 @@
 export default class CoordsConverter {
   constructor(candles, w, h) {
     this.candles = candles
-    console.log('3')
-
     let prices = this._calculateMinMaxPrice(candles)
     this._normalizePrices(candles, prices)
 
     this.priceScale = 1000
     let priceRange = (prices.maxPrice - prices.minPrice) * this.priceScale
     this.candleChartWidth = 10
-    //this.maxX = candles.length * this.candleWidth;
-    //this.maxY = priceRange
+    this.maxX = candles.length * this.candleChartWidth
+    this.maxY = priceRange
     this._setScreenSize(w, h)
-    this._setChartVisibleRc(0, this.candles.length)
+    this._setChartVisibleRc(this._calculateChartVisibleRc(0, 150))
   }
 
   getCandleAtScreenPoint(x, y) {
     let chartPoint = this.convertScreenToChart(x, y)
     let candleIndex = Math.round(chartPoint.x / this.candleChartWidth)
-    if (candleIndex >= this.from && candleIndex < this.to) {
-      return this.candles[candleIndex]
-    }
+    //  if (candleIndex >= this.from && candleIndex < this.to) {
+    //    return this.candles[candleIndex]
+    //  }
   }
 
   convertScreenToChart(x, y) {
@@ -35,36 +33,57 @@ export default class CoordsConverter {
     return { x: scrX, y: scrY }
   }
 
-  getScreenCandles() { 
-    let candlesSpan = this.candles.slice(this.from, this.to)
-    let screenCandleWidth = this.screenWidth / (this.to - this.from)
+  getScreenCandles() {
+    let fromCandle = Math.max(0, Math.floor(this.chartVisibleRc.x / this.candleChartWidth))
+    let toCandle = fromCandle + Math.ceil(this.chartVisibleRc.w / this.candleChartWidth) + 1
+    let candlesSpan = this.candles.slice(fromCandle, toCandle)
+    let prices = this._calculateMinMaxPrice(candlesSpan)
+    let screenCandleWidth = this.screenWidth / (toCandle - fromCandle)
+
+    
+
+    //console.log('chartVisibleRc ' + this.chartVisibleRc.x + ' ' + this.chartVisibleRc.y)
+    console.log('fromCandle ' + fromCandle)
+    console.log('toCandle ' + toCandle)
+
+    console.log('pricesMin ' + prices.minPrice)
+
+    let chartOffsetX = fromCandle * this.candleChartWidth
 
     candlesSpan.forEach((candle, i) => {
-      let x = i * screenCandleWidth
-      let highPrice = this._priceToVerticalChartPos(candle.high)
-      let lowPrice = this._priceToVerticalChartPos(candle.low)
-      let openPrice = this._priceToVerticalChartPos(candle.open)
-      let closePrice = this._priceToVerticalChartPos(candle.close)
+      let chartX = chartOffsetX + (i * this.candleChartWidth)
+      let {x, y} = this.convertChartToScreen(chartX, 0)
+
+      //console.log('chartX ' + chartX)
+      //console.log('x ' + x)
+
+      let highPrice = (candle.high - prices.minPrice) * this.priceScale
+      let lowPrice = (candle.low - prices.minPrice) * this.priceScale
+      let openPrice = (candle.open - prices.minPrice) * this.priceScale
+      let closePrice = (candle.close - prices.minPrice) * this.priceScale
 
       candle.screenHigh = { x: x, y: this._chartToScreenVerticalPos(highPrice) }
       candle.screenLow = { x: x, y: this._chartToScreenVerticalPos(lowPrice) }
       candle.screenOpen = { x: x, y: this._chartToScreenVerticalPos(openPrice) }
-      candle.screenClose = {
-        x: x,
-        y: this._chartToScreenVerticalPos(closePrice)
-      }
-      candle.screenWidth = screenCandleWidth
+      candle.screenClose = { x: x, y: this._chartToScreenVerticalPos(closePrice) }
+      candle.screenWidth = screenCandleWidth 
     })
 
     return candlesSpan
   }
 
-  _chartToScreenVerticalPos(chartVerticalPos) {
-    return chartVerticalPos * this.screenToVisibleChart.y
+  moveChartRc(dx) {
+    let newX = dx > 0 ? this.chartVisibleRc.x - 1 : this.chartVisibleRc.x + 1
+
+    //console.log('newX ' + this.chartVisibleRc.x + ' ' + this.chartVisibleRc.y)
+
+    this._setChartVisibleRc(
+      this._calculateChartVisibleRc(newX, newX + this.chartVisibleRc.w)
+    )
   }
 
-  _priceToVerticalChartPos(price) {
-    return (price - this.minPrice) * this.priceScale
+  _chartToScreenVerticalPos(chartVerticalPos) {
+    return chartVerticalPos * this.screenToVisibleChart.y
   }
 
   _setScreenSize(w, h) {
@@ -72,23 +91,25 @@ export default class CoordsConverter {
     this.screenHeight = h
   }
 
-  _setChartVisibleRc(from, to) {
-    this.from = from
-    this.to = to
-    let candlesSpan = this.candles.slice(from, to)
+  _calculateChartVisibleRc(x1, x2) { 
+    let fromCandle = Math.max(0, Math.floor(x1 / this.candleChartWidth))
+    let toCandle = fromCandle + Math.ceil((x2 - x1) / this.candleChartWidth) + 1
+    
+    let candlesSpan = this.candles.slice(fromCandle, toCandle)
     let prices = this._calculateMinMaxPrice(candlesSpan)
-
-    this.maxPrice = prices.maxPrice
-    this.minPrice = prices.minPrice
-
-    let minPricePos = this._priceToVerticalChartPos(prices.minPrice)
-    let x = from * this.candleChartWidth
-    this.chartVisibleRc = {
-      x: x,
-      y: minPricePos,
-      w: to * this.candleChartWidth - x,
-      h: this._priceToVerticalChartPos(prices.maxPrice) - minPricePos
+    
+    return {
+      x: x1,
+      y: 0,
+      w: x2 - x1,
+      h: (prices.maxPrice - prices.minPrice) * this.priceScale
     }
+  }
+
+  _setChartVisibleRc(rc) {
+    this.chartVisibleRc = rc
+
+    console.log('chartVisibleRc ' + this.chartVisibleRc.x + ' ' + this.chartVisibleRc.y)
 
     this.screenToVisibleChart = {
       x: this.screenWidth / this.chartVisibleRc.w,
@@ -124,6 +145,8 @@ export default class CoordsConverter {
       if (candle.high > prices.maxPrice) prices.maxPrice = candle.high
       if (candle.low < prices.minPrice) prices.minPrice = candle.low
     })
+    prices.maxPrice += 0.1
+    prices.minPrice -= 0.1
     return prices
   }
 }
