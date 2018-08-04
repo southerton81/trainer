@@ -1,7 +1,7 @@
 import React from "react";
 import { ART } from "react-native";
 
-const Candle = ({ candleData }) => {
+const Selected = ({ candleData, screenHeight }) => {
   const candle = ART.Path()
     .moveTo(candleData.screenHigh.x + candleData.screenWidth / 2, candleData.screenHigh.y)
     .lineTo(candleData.screenHigh.x + candleData.screenWidth / 2, candleData.screenLow.y)
@@ -17,14 +17,20 @@ const Candle = ({ candleData }) => {
     .lineTo(x, y + height)
     .close()
 
+  let center = x + (candleData.screenWidth / 2)
+  const centerLine = ART.Path()
+    .moveTo(center, 0)
+    .lineTo(center, screenHeight)
+    
   let colorBody = candleData.open > candleData.close ? "#FF0000" : "#008000"
   let colorCandle = "#000"
 
   return (
-    <ART.Group> 
-      <ART.Shape fill={colorBody} d={body} />
+    <ART.Group>
+      <ART.Shape stroke={colorCandle} d={body} />
+      <ART.Shape stroke={colorCandle} d={centerLine} />
     </ART.Group>
   )
 }
 
-export { Candle }
+export { Selected };

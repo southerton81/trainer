@@ -21,10 +21,10 @@ const Trendlines = ({ trendlines }) => {
         <ART.Group key={"trendline" + index}>
           <ART.Shape stroke={"#000"} d={path} />
         </ART.Group>
-      ));
+      ))
     }
 
     return <ART.Group />
-};
+}
 
 export { Trendlines };
