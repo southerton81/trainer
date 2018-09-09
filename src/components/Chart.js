@@ -3,8 +3,7 @@ import { connect } from "react-redux"
 import {
   Animated,
   PanResponder,
-  ART,
-  Dimensions,
+  ART, 
   View,
   ActivityIndicator,
   TouchableWithoutFeedback,
@@ -14,7 +13,9 @@ import { Button } from "./common"
 import { Candle } from "./../shapes/Candle"
 import { Trendlines } from "./../shapes/Trendlines"
 import { Selected } from "./../shapes/Selected"
-import { zoomChart, fetchChart, addTrendline, moveChart, candleInfo } from "../actions"
+import { Sizing } from "./../utils/DiplayUtils"
+import  VolumeChart from "./VolumeChart"
+import { zoomChart, fetchChart, addTrendline, moveChart, select } from "../actions"
 
 class Chart extends Component {
   constructor(props) {
@@ -27,8 +28,9 @@ class Chart extends Component {
   }
 
   setupPanResponder() {
-    this.pan = { x: 0, y: 0 }
+    this.pan = { x: 0, y: 0 } 
     this.moveDiff = 0
+    this.totalMoveDiff = 0 // Used for click recognition
     this._panResponder = PanResponder.create({
       onStartShouldSetPanResponder: (evt, gestureState) => true,
       onMoveShouldSetPanResponder: (evt, gestureState) => true,
@@ -38,6 +40,7 @@ class Chart extends Component {
       onPanResponderGrant: (e, gestureState) => {
         this.pan = { x: e.nativeEvent.locationX, y: e.nativeEvent.locationY }
         this.moveDiff = 0
+        this.totalMoveDiff = 0 
       },
 
       onPanResponderMove: (e, gestureState) => {
@@ -45,15 +48,20 @@ class Chart extends Component {
         this.pan = { x: e.nativeEvent.locationX, y: e.nativeEvent.locationY }
         if (e.nativeEvent.touches.length <= 1) {
           this.props.moveChart(-diff)
+          this.totalMoveDiff += Math.abs(diff) 
         } else {
           let diff = e.nativeEvent.touches[0].locationX - e.nativeEvent.touches[1].locationX
-          if (this.moveDiff > 0) this.props.zoomChart(this.moveDiff - diff)
+          if (this.moveDiff > 0) {
+            this.props.zoomChart(this.moveDiff - diff)
+            this.totalMoveDiff = 1000
+          }
           this.moveDiff = diff
         }
       },
 
       onPanResponderRelease: (e, { vx, vy }) => {
-        this.props.candleInfo(e.nativeEvent.locationX) 
+        if (this.totalMoveDiff < 5)
+          this.props.select(e.nativeEvent.locationX, e.nativeEvent.locationY)  
       }
     })
   }
@@ -70,33 +78,39 @@ class Chart extends Component {
       return (
         <View>
           <ActivityIndicator size="large" color="#0000ff" />
-        </View>
-      )
-
-    let { height, width } = Dimensions.get("window")
+        </View>)
+ 
+    let { height, width } = Sizing.getChartSize()
     const candles = this.props.candles.map(candle => (
       <Candle key={"candle" + candle.date} candleData={candle} />
     ))
     const trendlines = <Trendlines trendlines={this.props.trendlines} />
     
-    let selectedCandle = []
+    let selected = []
     let candleInfo = ""
     if (this.props.selected) {
-      candleInfo = this.props.selected.low
-      selectedCandle = <Selected 
-      key={"selected" + this.props.selected.date} 
-      candleData={this.props.selected} screenHeight={height}/>
+      candleInfo = this.props.candleInfo
+      selected = <Selected key={"selected" + this.props.selected} 
+                  pos={this.props.selected} screenHeight={height}/>
     } 
     
+
     return (
       <View style={styles.containerStyle} {...this._panResponder.panHandlers}>
-        <Text>{candleInfo}</Text>
+         
         <ART.Surface width={width} height={height}>
           {candles}
+          {selected}
           {trendlines} 
-          {selectedCandle}
-        </ART.Surface>
 
+          <ART.Text
+            font={`13px "Helvetica Neue", "Helvetica", Arial`}
+            fill="#000000"
+            alignment="left">
+            {candleInfo}
+          </ART.Text>
+        </ART.Surface> 
+        
       </View>
     )
   }
@@ -119,9 +133,9 @@ const mapStateToProps = state => {
   return {
     candles: state.chartState.candles,
     trendlines: state.chartState.trendlines,
-    loading: state.chartState.loading,
-    span: state.chartState.span,
-    selected: state.chartState.selected
+    loading: state.chartState.loading, 
+    selected: state.chartState.selected,
+    candleInfo: state.chartState.candleInfo
   }
 }
 
@@ -132,6 +146,6 @@ export default connect(
     fetchChart,
     addTrendline,
     moveChart,
-    candleInfo
+    select
   }
 )(Chart)

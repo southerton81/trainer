@@ -22,6 +22,7 @@ const Candle = ({ candleData }) => {
 
   return (
     <ART.Group> 
+      <ART.Shape stroke={colorCandle} d={candle} />
       <ART.Shape fill={colorBody} d={body} />
     </ART.Group>
   )

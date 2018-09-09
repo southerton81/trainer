@@ -1,6 +1,6 @@
 import candles from "./../../res/Chart.json"
 import CoordsConverter from "./../engine/CoordsConverter"
-import { Dimensions } from "react-native"
+import { Sizing } from "./../utils/DiplayUtils"
 
 import {
   ZOOM_CHART,
@@ -8,7 +8,8 @@ import {
   ADD_TRENDLINE,
   FETCH_CHART_START,
   MOVE_CHART,
-  CANDLE_INFO
+  CANDLE_INFO,
+  SELECT
 } from "./types"
 import { Trendlines } from "../shapes/Trendlines"
 import DecoratorsProcessor from "../engine/DecoratorsProcessor"
@@ -20,11 +21,14 @@ export const fetchChart = () => {
   return dispatch => {
     dispatch({ type: FETCH_CHART_START })
     requestAnimationFrame(() => {
-      let { height, width } = Dimensions.get("window")
+      let { height, width } = Sizing.getChartSize()
       coordsConverter = new CoordsConverter(candles, width, height)
       dispatch({
         type: FETCH_CHART_SUCCESS,
-        payload: coordsConverter.getScreenCandles()
+        payload: {
+          candles: coordsConverter.getScreenCandles(coordsConverter),
+          selected: decoratorsProcessor.getScreenSelection(coordsConverter)
+        }
       })
     })
   }
@@ -35,19 +39,25 @@ export const moveChart = dx => {
     coordsConverter.moveChartRc(dx)
     return {
       type: FETCH_CHART_SUCCESS,
-      payload: coordsConverter.getScreenCandles(coordsConverter) 
+      payload: {
+        candles: coordsConverter.getScreenCandles(coordsConverter),
+        selected: decoratorsProcessor.getScreenSelection(coordsConverter)
+      }
     }
   }
 }
- 
+
 export const zoomChart = dx => {
   coordsConverter.zoomChartRc(dx)
   return {
     type: FETCH_CHART_SUCCESS,
-    payload: coordsConverter.getScreenCandles(coordsConverter)
+    payload: {
+      candles: coordsConverter.getScreenCandles(coordsConverter),
+      selected: decoratorsProcessor.getScreenSelection(coordsConverter)
+    }
   }
 }
- 
+
 export const addTrendline = (scrX, scrY) => {
   let chartPoint = coordsConverter.convertScreenToChart(scrX, scrY)
   decoratorsProcessor.addTrendline(chartPoint.x, chartPoint.y)
@@ -57,11 +67,20 @@ export const addTrendline = (scrX, scrY) => {
   }
 }
 
-export const candleInfo = (x) => {
-  if (coordsConverter) { 
+export const select = (x, y) => {
+  let chartPoint = coordsConverter.convertScreenToChartCandleCenter(x, y)
+  decoratorsProcessor.setSelection(chartPoint.x, chartPoint.y)
+  if (coordsConverter) {
     return {
-      type: CANDLE_INFO,
-      payload: coordsConverter.getCandleAtScreenPoint(x)
+      type: SELECT,
+      payload: {
+        selected: decoratorsProcessor.getScreenSelection(coordsConverter),
+        candleInfo: coordsConverter.getCandleAtScreenPoint(x).low
+      }
     }
   }
 }
+
+
+
+

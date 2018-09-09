@@ -25,6 +25,13 @@ export default class CoordsConverter {
     return { x: chartX, y: chartY }
   }
 
+  convertScreenToChartCandleCenter(x, y) {
+    let chartPos = this.convertScreenToChart(x, y)
+    chartPos.x = (Math.floor(chartPos.x / this.candleChartWidth) * this.candleChartWidth)
+       + this.candleChartWidth / 2
+    return chartPos
+  }
+
   convertChartToScreen(x, y) {
     let scrX = (x - this.chartVisibleRc.x) * this.screenToVisibleChart.x
     let scrY = (y - this.chartVisibleRc.y) * this.screenToVisibleChart.y
@@ -36,17 +43,17 @@ export default class CoordsConverter {
     let chartOffsetX = this.fromCandle * this.candleChartWidth
 
     this.candlesSpan.forEach((candle, i) => {
-      let chartX = chartOffsetX + i * this.candleChartWidth
-      let x = this.convertChartToScreen(chartX).x
+      candle.chartX = chartOffsetX + i * this.candleChartWidth
+      let screenX = this.convertChartToScreen(candle.chartX).x
       let highPrice = (this.prices.maxPrice - candle.high) * this.priceScale
       let lowPrice = (this.prices.maxPrice - candle.low) * this.priceScale
       let openPrice = (this.prices.maxPrice - candle.open) * this.priceScale
       let closePrice = (this.prices.maxPrice - candle.close) * this.priceScale
 
-      candle.screenHigh = { x: x, y: this._chartToScreenVerticalPos(highPrice) }
-      candle.screenLow = { x: x, y: this._chartToScreenVerticalPos(lowPrice) }
-      candle.screenOpen = { x: x, y: this._chartToScreenVerticalPos(openPrice) }
-      candle.screenClose = { x: x, y: this._chartToScreenVerticalPos(closePrice)}
+      candle.screenHigh = { x: screenX, y: this._chartToScreenVerticalPos(highPrice) }
+      candle.screenLow = { x: screenX, y: this._chartToScreenVerticalPos(lowPrice) }
+      candle.screenOpen = { x: screenX, y: this._chartToScreenVerticalPos(openPrice) }
+      candle.screenClose = { x: screenX, y: this._chartToScreenVerticalPos(closePrice)}
 
       if (Math.abs(candle.screenOpen.y - candle.screenClose.y) < 5) {
         if (candle.screenClose.y <= candle.screenOpen.y) candle.screenClose.y = candle.screenOpen.y - 5
