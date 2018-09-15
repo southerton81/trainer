@@ -12,8 +12,7 @@ import {
 import { Button } from "./common"
 import { Candle } from "./../shapes/Candle"
 import { Trendlines } from "./../shapes/Trendlines"
-import { Selected } from "./../shapes/Selected"
-import { Sizing } from "./../utils/DiplayUtils"
+import { Selected } from "./../shapes/Selected" 
 import { zoomChart, moveChart, select } from "../actions"
 
 class VolumeChart extends Component {

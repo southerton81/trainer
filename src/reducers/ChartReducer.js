@@ -10,7 +10,7 @@ import {
 const INITIAL_STATE = {
   candles: [],
   trendlines: [], 
-  loading: false
+  loading: true
 }
 
 export default (state = INITIAL_STATE, action) => {

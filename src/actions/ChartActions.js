@@ -1,6 +1,5 @@
 import candles from "./../../res/Chart.json"
-import CoordsConverter from "./../engine/CoordsConverter"
-import { Sizing } from "./../utils/DiplayUtils"
+import CoordsConverter from "./../engine/CoordsConverter" 
 
 import {
   ZOOM_CHART,
@@ -17,12 +16,11 @@ import DecoratorsProcessor from "../engine/DecoratorsProcessor"
 var coordsConverter
 const decoratorsProcessor = new DecoratorsProcessor()
 
-export const fetchChart = () => {
+export const fetchChart = (w, h) => {
   return dispatch => {
     dispatch({ type: FETCH_CHART_START })
-    requestAnimationFrame(() => {
-      let { height, width } = Sizing.getChartSize()
-      coordsConverter = new CoordsConverter(candles, width, height)
+    requestAnimationFrame(() => { 
+      coordsConverter = new CoordsConverter(candles, w, h)
       dispatch({
         type: FETCH_CHART_SUCCESS,
         payload: {

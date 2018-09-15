@@ -9,6 +9,10 @@ export default class CoordsConverter {
     this.candleChartWidth = 10
     this.maxX = candles.length * this.candleChartWidth
     this.maxY = priceRange
+    this.setDimensions(w, h)
+  }
+
+  setDimensions(w, h) {
     this._setScreenSize(w, h)
     this._setChartVisibleRc(this._calculateChartVisibleRc(0, 250))
   }
