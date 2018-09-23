@@ -9,11 +9,10 @@ import {
   MOVE_CHART,
   CANDLE_INFO,
   SELECT
-} from "./types"
-import { Trendlines } from "../shapes/Trendlines"
-import DecoratorsProcessor from "../engine/DecoratorsProcessor"
+} from "./types" 
+import DecoratorsProcessor from "../engine/DecoratorsProcessor" 
 
-var coordsConverter
+let coordsConverter
 const decoratorsProcessor = new DecoratorsProcessor()
 
 export const fetchChart = (w, h) => {

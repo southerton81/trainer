@@ -43,7 +43,6 @@ class Chart extends Component {
         dimensions: e.nativeEvent.layout
       })
 
-
       console.log('fetchChart')
       this.props.fetchChart(e.nativeEvent.layout.width, e.nativeEvent.layout.height)
     }
@@ -98,7 +97,7 @@ class Chart extends Component {
   }
 
   render() {
-    if (this.props.loading) {
+    if (this.props.loading || this.state.dimensions.height == 0) {
       return (
         <View style={{ flex: 3,  justifyContent:'center' }} onLayout={this.onLayout}>
           <ActivityIndicator size="large" color="#0000ff" />
@@ -123,7 +122,7 @@ class Chart extends Component {
           screenHeight={height}
         />
       )
-    }
+    } 
 
     return (
       <View style={{ flex: 3 }}
@@ -138,7 +137,7 @@ class Chart extends Component {
             font={`13px "Helvetica Neue", "Helvetica", Arial`}
             fill="#000000"
             alignment="left">
-            {candleInfo}
+            {candleInfo + ''}
           </ART.Text>
         </ART.Surface>
       </View>

@@ -1,10 +1,11 @@
-import React, { Component } from "react"
-import { Platform, StyleSheet, Text, View, Dimensions } from "react-native"
-import { Provider } from "react-redux"
-import { createStore, applyMiddleware } from "redux"
-import thunk from "redux-thunk"
-import reducers from "./reducers"
-import Chart from "./components/Chart"
+import React, { Component } from "react";
+import { StyleSheet, View } from "react-native";
+import { Provider } from "react-redux";
+import { applyMiddleware, createStore } from "redux";
+import thunk from "redux-thunk";
+import Chart from "./components/Chart";
+import VolumeChart from "./components/VolumeChart";
+import reducers from "./reducers";
 
 export default class App extends Component {
   render() {
@@ -12,7 +13,7 @@ export default class App extends Component {
       <Provider store={createStore(reducers, applyMiddleware(thunk))}>
         <View style = {styles.container}>
           <Chart /> 
-          <View style={{flex: 1, backgroundColor: '#E3d'}}/>
+          <VolumeChart /> 
         </View>
       </Provider>
     )
