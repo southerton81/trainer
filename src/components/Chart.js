@@ -11,7 +11,6 @@ import {
   Dimensions
 } from "react-native"
 import { Button } from "./common"
-import { Candle } from "./../shapes/Candle"
 import { Trendlines } from "./../shapes/Trendlines"
 import { Selected } from "./../shapes/Selected"
 import VolumeChart from "./VolumeChart"
@@ -34,17 +33,19 @@ class Chart extends Component {
   }
 
   onLayout = e => {
-    console.log('onLayout')
-
-    if (!this.state.dimensions ||
+    if (
+      !this.state.dimensions ||
       this.state.dimensions.width !== e.nativeEvent.layout.width ||
-      this.state.dimensions.height !== e.nativeEvent.layout.height) {
+      this.state.dimensions.height !== e.nativeEvent.layout.height
+    ) {
       this.setState({
         dimensions: e.nativeEvent.layout
       })
 
-      console.log('fetchChart')
-      this.props.fetchChart(e.nativeEvent.layout.width, e.nativeEvent.layout.height)
+      this.props.fetchChart(
+        e.nativeEvent.layout.width,
+        e.nativeEvent.layout.height
+      )
     }
   }
 
@@ -99,16 +100,16 @@ class Chart extends Component {
   render() {
     if (this.props.loading || this.state.dimensions.height == 0) {
       return (
-        <View style={{ flex: 3,  justifyContent:'center' }} onLayout={this.onLayout}>
+        <View
+          style={{ flex: 3, justifyContent: "center" }}
+          onLayout={this.onLayout}
+        >
           <ActivityIndicator size="large" color="#0000ff" />
         </View>
       )
     }
 
     let { height, width } = this.state.dimensions
-    const candles = this.props.candles.map(candle => (
-      <Candle key={"candle" + candle.date} candleData={candle} />
-    ))
     const trendlines = <Trendlines trendlines={this.props.trendlines} />
 
     let selected = []
@@ -122,28 +123,74 @@ class Chart extends Component {
           screenHeight={height}
         />
       )
-    } 
+    }
 
     return (
-      <View style={{ flex: 3 }}
-        {...this._panResponder.panHandlers}>
-
+      <View style={{ flex: 3 }} {...this._panResponder.panHandlers}>
         <ART.Surface width={width} height={height}>
-          {candles}
+          {this.renderCandles()}
           {selected}
           {trendlines}
 
           <ART.Text
             font={`13px "Helvetica Neue", "Helvetica", Arial`}
             fill="#000000"
-            alignment="left">
-            {candleInfo + ''}
+            alignment="left"
+          >
+            {candleInfo + ""}
           </ART.Text>
         </ART.Surface>
       </View>
     )
   }
-} 
+
+  renderCandles() {
+    let candleBodies
+    
+    if (this.props.candles[0].screenWidth < 5) {
+      candleBodies = <ART.Shape></ART.Shape>
+    } else {
+      candleBodies = this.props.candles.map(candle => {
+        let x = candle.screenHigh.x
+        let y = Math.min(candle.screenOpen.y, candle.screenClose.y)
+        let height = Math.abs(candle.screenOpen.y - candle.screenClose.y)
+
+        const bodyPath = ART.Path()
+          .moveTo(x, y)
+          .lineTo(x + candle.screenWidth, y)
+          .lineTo(x + candle.screenWidth, y + height)
+          .lineTo(x, y + height)
+          .close()
+
+        let colorBody = candle.open > candle.close ? "#FF0000" : "#008000"
+
+        return <ART.Shape  key={"c" + candle.date}   d={bodyPath} />
+      })
+    }
+
+    let candleWicks = this.props.candles.map(candle => {
+      const candlePath = ART.Path()
+        .moveTo(
+          candle.screenHigh.x + candle.screenWidth / 2,
+          candle.screenHigh.y
+        )
+        .lineTo(
+          candle.screenHigh.x + candle.screenWidth / 2,
+          candle.screenLow.y
+        )
+
+      let colorCandle = "#000"
+      return <ART.Shape key={"w" + candle.date} stroke={colorCandle} d={candlePath} />
+    })
+
+    return(
+      <ART.Group>
+        {candleWicks}
+        {candleBodies}
+      </ART.Group>
+    )
+  }
+}
 
 const mapStateToProps = state => {
   return {

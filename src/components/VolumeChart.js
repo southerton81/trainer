@@ -10,7 +10,6 @@ import {
   Text
 } from "react-native"
 import { Button } from "./common"
-import { Candle } from "./../shapes/Candle"
 import { Trendlines } from "./../shapes/Trendlines"
 import { Selected } from "./../shapes/Selected"
 import { Rectangle } from "./../shapes/Rectangle"
@@ -23,8 +22,6 @@ class VolumeChart extends Component {
   }
 
   onLayout = e => {
-    console.log("VolumeChart onLayout")
-
     if (!this.state.dimensions || 
       this.state.dimensions.width !== e.nativeEvent.layout.width || 
       this.state.dimensions.height !== e.nativeEvent.layout.height) {
@@ -48,17 +45,37 @@ class VolumeChart extends Component {
     let maxVolume = this.props.candles.reduce((max, c) => c.volume > max ? c.volume : max, this.props.candles[0].volume)
     let screenRatio = maxVolume / height
     let volumeBarWidth = width / this.props.candles.length
-    const volumes = this.props.candles.map((candle, index) => (
+    
+    const volumes = this.props.candles.map((candle, index) => 
+    (
       <Rectangle key={"volume" + candle.date}
-        x={index * volumeBarWidth} y={height}
-        width={volumeBarWidth} height={candle.volume / screenRatio}
-        colorBody="#000" colorOutline="#EEE" />
+        x = { candle.screenOpen.x }
+        y = { height }
+        width = { volumeBarWidth }
+        height = { candle.volume / screenRatio }
+        colorBody = "#000" 
+        colorOutline = "#EEE" />
     ))
 
+    let selected = []
+    let candleInfo = ""
+    if (this.props.selected) {
+      candleInfo = this.props.candleInfo
+      selected = (
+        <Selected
+          key={"selectedvol" + this.props.selected}
+          pos={this.props.selected}
+          screenHeight={height}
+        />
+      )
+    } 
+
+    // {volumes}
     return (
       <View style={{ flex: 1 }}>
         <ART.Surface width={width} height={height}>
-          {volumes}
+         
+          {selected}
         </ART.Surface>
       </View>
     )
