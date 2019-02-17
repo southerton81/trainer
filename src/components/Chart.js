@@ -22,6 +22,10 @@ import {
   select
 } from "../actions"
 
+import {Surface} from "gl-react-native";
+import GL from "gl-react";
+import Triangle from './../shapes/Triangle.js';
+
 class Chart extends Component {
   constructor(props) {
     super(props)
@@ -125,7 +129,17 @@ class Chart extends Component {
       )
     }
 
-    return (
+    return <View>
+    <Surface width={width} height={height}>
+      <GL.Node
+        shader={{
+          frag: Triangle
+        }}
+      />
+    </Surface>
+  </View>;
+
+    /*return (
       <View style={{ flex: 3 }} {...this._panResponder.panHandlers}>
         <ART.Surface width={width} height={height}>
           {this.renderCandles()}
@@ -141,13 +155,13 @@ class Chart extends Component {
           </ART.Text>
         </ART.Surface>
       </View>
-    )
+    )*/
   }
 
   renderCandles() {
     let candleBodies
     
-    if (this.props.candles[0].screenWidth < 5) {
+    if (this.props.candles[0].screenWidth < 1) {
       candleBodies = <ART.Shape></ART.Shape>
     } else {
       candleBodies = this.props.candles.map(candle => {
@@ -164,7 +178,7 @@ class Chart extends Component {
 
         let colorBody = candle.open > candle.close ? "#FF0000" : "#008000"
 
-        return <ART.Shape  key={"c" + candle.date}   d={bodyPath} />
+        return <ART.Shape  key={"c" + candle.date} fill={colorBody}  d={bodyPath} />
       })
     }
 

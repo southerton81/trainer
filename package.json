@@ -8,6 +8,8 @@
   },
   "dependencies": {
     "art": "^0.10.2",
+    "gl-react": "^2.3.1",
+    "gl-react-native": "^2.57.0",
     "react": "16.6.3",
     "react-native": "0.58.3",
     "react-native-art-extra": "^0.1.2",
